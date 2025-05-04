@@ -1,11 +1,21 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title='Home'>
+	<section class='container m-auto flex flex-col items-center justify-center py-8'>
+		<article>
+			<h2>Elizon Rodriguez Liriando</h2>
+			<span>Web Developer</span>
+			<p>I'm a web developer with a passion for creating beautiful and functional websites. I love to learn new technologies and improve my skills.</p>
+			<p>I'm currently working on a personal project to build a portfolio website using Astro and Tailwind CSS.</p>
+			<p>In my free time, I enjoy reading books, playing video games, and spending time with my family and friends.</p>
+		</article>
+		<div>
+			<img src="/public/img/elizonperfil.webp" alt="Imagen de elizon estilo anime" class="rounded-full w-32 h-32 object-cover " />
+		</div>
+	</section>
 </Layout>
