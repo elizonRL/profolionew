@@ -6,10 +6,12 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title='Home'>
-	<section class='w-4/5 md:flex-col md:flex-col-reverse m-auto flex flex-row items-center justify-center py-8'>
+	<section class='w-4/5 m-auto flex flex-col-reverse items-center justify-center py-8 lg:flex-row '>
 		<article class="text-balance">
-			<h2>Elizon Rodriguez Liriando</h2>
-			<span>Web Developer</span>
+			<div class="relative">
+				<h2 class="text-6xl font-bold my-0.5 text-balance" >Elizon Rodriguez Liriando</h2>
+				<span class="absolute top-0 right-0.5 border rounded-3xl px-5 m-3 bg-accent">Web Developer</span>
+			</div>
 			<p>I'm a web developer with a passion for creating beautiful and functional websites. I love to learn new technologies and improve my skills.</p>
 			<p>I'm currently working on a personal project to build a portfolio website using Astro and Tailwind CSS.</p>
 			<p>In my free time, I enjoy reading books, playing video games, and spending time with my family and friends.</p>
