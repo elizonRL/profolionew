@@ -15,5 +15,5 @@
 }
 
 .arrow-down {
-  animation: sink 1.5s infinite;
+  animation: sink 1.5s infinite ease-in-out;
 }
