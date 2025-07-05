@@ -1,55 +1,13 @@
 ---
+import HeroSection from '../components/HeroSection.astro';
+import AboutMe from '../components/AboutMe.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout title='Home'>
-<section class="min-h-screen w-full flex gap-12 flex-col-reverse lg:flex-row items-center justify-center px-6 md:px-12 py-12 bg-[#0d1117] text-white">
-  <!-- Texto -->
-
-  <article class="animate-blurred-fade-in lg:w-1/4 text-center md:text-left">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">
-      Hola, soy <span class="text-blue-400">Elizon</span>
-    </h1>
-    <p class="text-lg md:text-xl mb-6 max-w-md mx-auto md:mx-0 leading-relaxed">
-      Desarrollador web enfocado en <span class="text-green-400">React</span> y <span class="text-yellow-400">Node.js</span>.
-      Apasionado por construir interfaces modernas y funcionales.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-      <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition">
-        Ver Proyectos
-      </a>
-      <a href="/CV_ElizonRodriguez.pdf" class="border border-gray-300 py-2 px-6 rounded-full hover:bg-white hover:text-black transition">
-        Descargar CV
-      </a>
-    </div>
-  </article>
-
-  <!-- Imagen -->
-  <div class="lg:w-1/4 mb-8 md:mb-0 flex flex-col ">
-    <img src='/public/img/elizonperfil.webp' alt="Avatar de Elizon" class="w-72 h-72 object-cover overflow-hidden rounded-full shadow-lg justify-center items-center border-4 border-blue-500 " />
-	<div class="flex flex-col items-center justify-center mt-4">
-	  
-		<span class="text-whitetext-gray-400 text-sm text-center items-center">Constactos</span>
-		<a href="#" class="size-12 bg-accent rounded-full text-center border-white border-1" > lint</a>
-	</div>
-  </div>
-</section>
-
-<section class="w-full h-full bg-gray-900 text-white py-12 px-6 md:px-16">
-  <div class="max-w-6xl mx-auto text-center">
-	<h2 class="text-3xl md:text-4xl font-bold mb-6">Sobre Mí</h2>
-	<p class="text-lg md:text-xl mb-4 text-wrap">
-	  Soy un desarrollador web con experiencia en la creación de aplicaciones modernas y eficientes. Me especializo en React y Node.js, y disfruto trabajando en proyectos desafiantes que me permiten aprender y crecer.
-	</p>
-	<p class="text-lg md:text-xl">
-	  En mi tiempo libre, me gusta explorar nuevas tecnologías, contribuir a proyectos de código abierto y mejorar mis habilidades de programación.
-	</p>
-  </div>
-  <svg width="28"  height="28"> <use xlink:href="../assets/sprite.svg#twitch" /></svg>
-
-</section>
-
+<!-- Hero section for presentation myself -->
+<HeroSection />
+<!-- about section talking about my jobs and carrear -->
+<AboutMe />
 </Layout>

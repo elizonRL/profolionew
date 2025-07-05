@@ -9,3 +9,11 @@
     --color-accent: #4C93F5;
     --color-background: #0C62D9;
 }
+@keyframes sink {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+}
+
+.arrow-down {
+  animation: sink 1.5s infinite;
+}
