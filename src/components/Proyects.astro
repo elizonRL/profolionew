@@ -2,6 +2,7 @@
 import TitleHeader from "./TitleHeader.astro";
 import Tailwind from "./icons/Tailwind.astro";
 import Next from "./icons/Next.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
 const TAGS = {
   NEXT: {
     name: "Next.js",
@@ -13,16 +14,21 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  ASTROICON: {
+    name: "Astro",
+    class: "bg-[#FF5D01] text-white",
+    icon: AstroIcon, // Assuming you have an Astro icon component
+  },
 };
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "ENGLISH BLOG - UN BLOG PARA APRENDER INGLÉS",
     description:
       "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
     link: "https://svgl.vercel.app/",
     github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    image: "/projects/englishblog.webp",
+    tags: [TAGS.ASTROICON, TAGS.TAILWIND],
   },
   {
     title: "AdventJS - Retos de programación con JavaScript y TypeScript",
@@ -33,13 +39,13 @@ const PROJECTS = [
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
 ]
-
+const {id} = Astro.props;
 ---
 
-<section class="flex flex-col w-full h-auto text-white py-8 px-16 md:px-12 text-wrap">
+<section id={id} class="flex flex-col w-full items-center h-auto text-white py-8 px-16 md:px-12 text-wrap">
   <TitleHeader titleH2="Proyectos" icon="💻" />
 
-  <div class="flex flex-col gap-y-16">
+  <div class="flex flex-col w-4/5 justify-center items-center gap-y-16">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
@@ -58,7 +64,7 @@ const PROJECTS = [
           {tags.map((tag) => (
             <li>
               <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                class={`flex gap-x-2 justify-center items-center rounded-full text-xs ${tag.class} py-1 px-2 `}
               >
                 <tag.icon class="size-4" />
                 {tag.name}
