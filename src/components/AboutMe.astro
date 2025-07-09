@@ -1,11 +1,10 @@
 ---
 import Paragraph from "./Paragraph.astro";
 import TitleHeader from "./TitleHeader.astro";
+import SectionComponent from "./SectionComponent.astro";
 ---
-
-<section
-  class="flex justify-center items-center w-full h-auto bg-gray-900 text-white py-8 px-20 md:px-12 text-wrap font-extralight">
-  <div class="max-w-5xl mx-auto px-12 md:px-16">
+<SectionComponent color="bg-gray-900">
+ <div class="max-w-5xl mx-auto px-12 md:px-16">
   <TitleHeader titleH2="Sobre mí" icon="🧍🏽‍♂️"/>
     <Paragraph>
       Soy licenciado en informática con una fuerte orientación al desarrollo web
@@ -43,4 +42,5 @@ import TitleHeader from "./TitleHeader.astro";
       </Paragraph>
     </Paragraph>
   </div>
-</section>
+</SectionComponent>
+

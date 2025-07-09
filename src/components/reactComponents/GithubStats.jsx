@@ -6,9 +6,7 @@ const GithubStats = () => {
     <>
       <section className='flex flex-col items-center w-full h-auto text-white py-8 px-20 md:px-12 text-wrap font-extralight'>
          <div className='w-full md:w-1/2'>
-        <h2 className='text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-tr from-accent to-secondary text-transparent bg-clip-text inline-block'>
-          GitHub Stats
-        </h2>
+      
         <div className='grid grid-cols-5 grid-rows-5 gap-4'>
           <div className='col-span-2 row-span-2'>
             <img
