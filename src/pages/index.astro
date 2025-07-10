@@ -3,8 +3,8 @@ import HeroSection from '../components/HeroSection.astro';
 import AboutMe from '../components/AboutMe.astro';
 import Layout from '../layouts/Layout.astro';
 import Proyects from '../components/Proyects.astro';
-import GitHubStats from '../components/reactComponents/GithubStats.jsx';
-
+/* import GitHubStats from '../components/reactComponents/GithubStats.jsx'; */
+import SkillSection from '../components/SkillSection.astro';
 ---
 
 <Layout title='Home'>
@@ -14,6 +14,7 @@ import GitHubStats from '../components/reactComponents/GithubStats.jsx';
 <Proyects id="projects" />
 <!-- about section talking about my jobs and carrear -->
 <!-- GitHub Stats section -->
- <GitHubStats client:visible />
+<!--  <GitHubStats client:visible /> -->
+  <SkillSection/>
 <AboutMe />
 </Layout>

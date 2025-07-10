@@ -1,38 +1,124 @@
-import TitleHeader from '../TitleHeader.astro';
+import { useEffect, useState } from 'react';
 
 const GithubStats = () => {
-  const username = import.meta.env.USER_NAME; // Replace with your GitHub username
+  // Ensure the USER_NAME environment variable is set
+  const username = import.meta.env.USER_NAME || 'elizonRL'; // Default to 'elizonRL' if not set
+  const githubUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+  const [repos, setRepos] = useState([]);
+  useEffect(() => {
+    if (username) {
+      fetch(githubUrl)
+        .then((response) => response.json())
+        .then((data) =>
+          setRepos(
+            data.map((repo) => ({
+              id: repo.id,
+              name: repo.name,
+              description: repo.description || 'No description available',
+              html_url: repo.html_url,
+              stars: repo.stargazers_count,
+              forks_count: repo.forks_count,
+            }))
+          ).catch((error) =>
+            console.error('Error fetching GitHub repos:', error)
+          )
+        );
+    } else {
+      console.error('GitHub username is not defined.');
+    }
+  }, []);
+  console.log(
+    'GitHub Repos:',
+    repos.sort((a, b) => b.stars - a.stars).slice(0, 6)
+  );
   return (
     <>
-      <section className='flex flex-col items-center w-full h-auto text-white py-8 px-20 md:px-12 text-wrap font-extralight'>
-         <div className='w-full md:w-1/2'>
-      
-        <div className='grid grid-cols-5 grid-rows-5 gap-4'>
-          <div className='col-span-2 row-span-2'>
-            <img
-              src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=radical`}
-              alt='GitHub Stats'
-              loading='lazy'
-            />
-          </div>
-          <div className='col-span-2 row-span-3 col-start-3'>
-            <img
-              src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=radical`}
-              alt='Lenguajes más usados'
-              loading='lazy'
-              className='object-cover object-top w-full h-auto'
-            />
-          </div>
-          <div className='col-span-2 row-span-3 row-start-3'>
-            <img
-              src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=radical`}
-              alt='GitHub Streak Stats'
-              loading='lazy'
-            />
-          </div>
+      <div className='grid grid-cols-5 grid-rows-5 gap-5 p-4 justify-center items-start'>
+        <div className='col-span-2 row-span-5 bg-slate-800 hover:bg-slate-700 border-gray-300 pr-4 rounded-xl shadow-lg'>
+          <h2 className='text-xl font-semibold mb-4 pt-2 text-center text-white'> <svg width={26} height={26} className='inline mr-2'>
+            <use href='/assets/sprite.svg#github' />
+            </svg> Repositorios de {username}</h2>
+         <ul className='list-none p-3 text-sm'> 
+            {repos.map((repo => (
+              <li key={repo.id} className='mb-2 '>
+                <a
+                  href={repo.html_url}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='text-blue-500 hover:underline font-semibold text-xl'
+                >
+                  {repo.name}
+                </a>
+                <p className='text-gray-600'>{repo.description}</p>
+                <span className='text-sm text-gray-500'>
+                  ⭐ {repo.stars} | 🍴 {repo.forks_count}
+                </span>
+              </li>
+            ))).sort((a, b) => b.stars - a.stars).slice(0, 6)}
+          </ul>
         </div>
-         </div>
-      </section>
+        <div className='col-span-2 row-span-2 col-start-3'>
+          <img
+            src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=radical`}
+            alt='GitHub Stats'
+            loading='lazy'
+            className='w-full h-full object-contain rounded-xl shadow-lg aspect-ratio'
+          />
+        </div>
+        <div className='col-span-2 row-span-2 col-start-3 row-start-4'>
+          <img
+            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=radical`}
+            alt='Lenguajes más usados'  
+            loading='lazy'
+            className='w-full h-full object-contain rounded-xl shadow-lg aspect-ratio'
+          />
+        </div>
+
+        {/* <div className="col-span-3 row-span-3">
+          <img
+            src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=radical`}
+            alt="GitHub Stats"
+            loading="lazy"
+            className="w-full h-full object-contain rounded-xl shadow-lgaspect-ratio"
+          />
+        </div>
+
+        <div className="col-span-3 row-span-3">
+          <img
+            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=radical`}
+            alt="Lenguajes más usados"
+            loading="lazy"
+            className="w-full h-full object-contain rounded-xl shadow-lg aspect-ratio"
+          />
+        </div>
+
+        <div className="col-span-4 row-span-3">
+         {repos.map((repo) => (
+         
+          <div
+            key={repo.id}
+            className="bg-gray-800 p-4 rounded-lg shadow-md mb-4"
+          >
+            <h3 className="text-xl font-semibold mb-2">
+              <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                {repo.name}
+              </a>
+            </h3>
+            <p className="text-gray-300">{repo.description}</p>
+            <div className="mt-2">
+              <span className="text-sm text-gray-500">
+                ⭐ {repo.stargazers_count} | 🍴 {repo.forks_count}
+              </span>
+            </div>
+          </div>
+         )).slice(0, 6)}
+        </div> */}
+      </div>
     </>
   );
 };
