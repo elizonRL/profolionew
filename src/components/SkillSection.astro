@@ -7,12 +7,9 @@ import GithubStats from './reactComponents/GithubStats';
 <SectionComponent>
     <DivSection>
         <TitleHeader titleH2="Habilidades & Github Stats" icon="🛠️" />
-        <article class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <article class="">
             <div class="w-full">
-                <GithubStats client:visible />
-            </div>
-            <div class="w-sm p-4">
-                
+                <GithubStats client:load />
             </div>
         </article>
     </DivSection>
