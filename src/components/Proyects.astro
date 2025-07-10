@@ -9,6 +9,7 @@ import GitHub from "./icons/GitHub.astro";
 import LinkButton from "./LinkButton.astro";
 import Link from "./icons/Link.astro";
 import SectionComponent from "./SectionComponent.astro";
+import DivSection from "./DivSection.astro";
 const TAGS = {
   NEXT: {
     name: "Next.js",
@@ -60,7 +61,7 @@ const { id } = Astro.props;
 ---
 
 <SectionComponent>
-  <div class="max-w-5xl mx-auto px-12 md:px-16">
+  <DivSection>
     <TitleHeader titleH2="Proyectos" icon="💻" />
 
     <div class="flex flex-col gap-y-16">
