@@ -1,21 +1,52 @@
 ---
-import SectionComponent from './SectionComponent.astro';
-import TitleHeader from './TitleHeader.astro';
-import DivSection from './DivSection.astro';
-import GithubStats from './reactComponents/GithubStats';
+import SectionComponent from "./SectionComponent.astro";
+import TitleHeader from "./TitleHeader.astro";
+import DivSection from "./DivSection.astro";
+import GithubStats from "./reactComponents/GithubStats";
+const techStack = [
+  { name: "JavaScript", icon: "javascript" },
+  { name: "React", icon: "react" },
+  { name: "Node.js", icon: "node" },
+  { name: "Python", icon: "python" },
+  { name: "HTML5", icon: "html5" },
+  { name: "Tailwind CSS", icon: "tailwindcss" },
+  { name: "GitHub", icon: "github" },
+  { name: "css", icon: "css" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "Git", icon: "git" },
+  { name: "Astro", icon: "astro" },
+  { name: "Java", icon: "java" },
+];
 ---
+
 <SectionComponent>
-    <DivSection>
-        <TitleHeader titleH2="Habilidades & Github Stats" icon="🛠️" />
-        <article class="w-full">
-            <div>
-                <GithubStats client:visible />
-                <p class="text-gray-600 dark:text-gray-400 mt-4">
-                    Aqui estão algumas das minhas habilidades e estatísticas do GitHub. Você pode ver mais detalhes sobre meus projetos e contribuições no meu perfil do GitHub.
-                </p>
-            </div>
-            <div>
-            </div>
-        </article>
-    </DivSection>
+  <DivSection>
+    <TitleHeader titleH2="Habilidades & Github Stats" icon="🛠️" />
+    <article class="w-full">
+      <aside>
+        <GithubStats client:visible />
+        <p class="text-gray-600 dark:text-gray-400 mt-4">
+          Aquí tienes algunas de mis habilidades y estadísticas en GitHub.
+          Puedes ver más detalles sobre mis proyectos y contribuciones en mi
+          perfil de GitHub.
+        </p>
+      </aside>
+      <aside class="mt-4">
+        <h3 class="font-semibold text-2xl md:text-3xl">Stack de tecnologias</h3>
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 border border-gray-500 p-4 rounded-lg shadow-lg">
+          {
+            techStack.map((tech) => (
+              <div class="flex group flex-col hover:bg-gray-700 transition-all items-center justify-center text-center duration-500 size-30 m-auto bg-gray-800 p-3 rounded-lg shadow-md hover:shadow-lg">
+                <svg class="size-12 transition duration-150 ease-in-out group-hover:scale-120 group-hover:-translate-y-2">
+                  <use href={`/assets/sprite.svg#${tech.icon}`} />
+                </svg>
+                <span class="text-lg">{tech.name}</span>
+              </div>
+            ))
+          }
+        </div>
+      </aside>
+    </article>
+  </DivSection>
 </SectionComponent>

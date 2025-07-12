@@ -20,8 +20,6 @@ const GithubStats = () => {
               stars: repo.stargazers_count,
               forks_count: repo.forks_count,
             }))
-          ).catch((error) =>
-            console.error("Error fetching GitHub repos:", error)
           )
         );
       setLoading(false);
