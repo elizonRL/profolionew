@@ -1,9 +1,27 @@
 ---
-import SectionComponent from './SectionComponent.astro';
-import TitleHeader from './TitleHeader.astro';
-import DivSection from './DivSection.astro';
-import GithubStats from './reactComponents/GithubStats';
+import SectionComponent from "./SectionComponent.astro";
+import TitleHeader from "./TitleHeader.astro";
+import DivSection from "./DivSection.astro";
+import GithubStats from "./reactComponents/GithubStats";
+import TechSkill from "./TechSkill.astro";
+const techStack = [
+  { name: "JavaScript", icon: "javascript" },
+  { name: "React", icon: "react" },
+  { name: "Node.js", icon: "node" },
+  { name: "Python", icon: "python" },
+  { name: "HTML5", icon: "html5" },
+  { name: "Tailwind CSS", icon: "tailwindcss" },
+  { name: "GitHub", icon: "github" },
+  { name: "css", icon: "css" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "Git", icon: "git" },
+  { name: "Astro", icon: "astro" },
+  { name: "Java", icon: "java" },
+  {name: "Angular", icon:"angularColor"},
+  {name: "Ionic", icon:"ionicColor"}
+];
 ---
+
 <SectionComponent>
     <DivSection>
         <TitleHeader titleH2="Habilidades & Github Stats" icon="🛠️" />
@@ -18,4 +36,21 @@ import GithubStats from './reactComponents/GithubStats';
             </div>
         </article>
     </DivSection>
+  <DivSection>
+    <TitleHeader titleH2="Habilidades & Github Stats" icon="🛠️" />
+    <article class="w-full">
+      <aside>
+        <GithubStats client:visible />
+        <p class="text-gray-600 dark:text-gray-400 mt-4">
+          Aquí tienes algunas de mis habilidades y estadísticas en GitHub.
+          Puedes ver más detalles sobre mis proyectos y contribuciones en mi
+          perfil de GitHub.
+        </p>
+      </aside>
+      <aside class="mt-4">
+        <h3 class="font-bold text-3xl md:text-4xl">Stack de tecnologias</h3>
+        <TechSkill techStack={techStack} />
+      </aside>
+    </article>
+  </DivSection>
 </SectionComponent>

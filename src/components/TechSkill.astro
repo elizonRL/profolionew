@@ -1,0 +1,17 @@
+---
+const { techStack } = Astro.props;
+---
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 border border-gray-500 p-4 rounded-lg shadow-lg">
+  {
+    techStack.map((tech: { name: String; icon: String }) => (
+      <div class="flex group flex-col hover:bg-gray-700 transition-all items-center justify-center text-center duration-500 size-30 m-auto bg-gray-800 p-3 rounded-lg shadow-md hover:shadow-lg">
+        <svg class="size-12 transition duration-150 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:animate-jiggle">
+          <use href={`/assets/sprite.svg#${tech.icon}`} />
+        </svg>
+        <span class="text-lg">{tech.name}</span>
+      </div>
+    ))
+  }
+</div>

@@ -1,0 +1,7 @@
+---
+const {nameTag }= Astro.props;
+---
+
+<svg class="size-6" >
+    <use href={`/assets/sprite.svg#${nameTag}`} />
+</svg>

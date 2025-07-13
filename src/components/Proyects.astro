@@ -1,42 +1,41 @@
 ---
+/*Componetes utilizados*/ 
+
 import TitleHeader from "./TitleHeader.astro";
-import Tailwind from "./icons/Tailwind.astro";
-import Next from "./icons/Next.astro";
-import AstroIcon from "./icons/AstroIcon.astro";
-import Angular from "./icons/Angular.astro";
-import Ionic from "./icons/Ionic.astro";
-import GitHub from "./icons/GitHub.astro";
-import LinkButton from "./LinkButton.astro";
-import Link from "./icons/Link.astro";
 import SectionComponent from "./SectionComponent.astro";
 import DivSection from "./DivSection.astro";
+import SvgTag from "./icons/SvgTag.astro";
+import LinkButton from "./LinkButton.astro";
+
+/*Constantes de proyectos y etiquetas*/
 const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: Next, // You can import an icon component here if needed
-  },
+
   TAILWIND: {
     name: "Tailwind CSS",
     class: "bg-[#003159] text-white",
-    icon: Tailwind,
+    tagIcon: "tailwindcss", // Assuming you have a Tailwind icon component
+    icon: SvgTag,
   },
   ASTROICON: {
     name: "Astro",
-    class: "bg-[#FF5D01] text-white",
-    icon: AstroIcon, // Assuming you have an Astro icon component
+    class: "bg-[#e06b27] text-white",
+    tagIcon: "astro", // Assuming you have an Astro icon component
+    icon: SvgTag, // Assuming you have an Astro icon component
   },
   Angular: {
     name: "Angular",
     class: "bg-red-600 text-white",
-    icon: Angular, // Assuming you have an Angular icon component
+    tagIcon: "angular", // Assuming you have an Angular icon component
+    icon: SvgTag, // Assuming you have an Angular icon component
   },
   IONIC: {
     name: "Ionic",
     class: "bg-[#3880ff] text-white",
-    icon: Ionic,
+    tagIcon: "ionic", // Assuming you have an Ionic icon component
+    icon: SvgTag,
   },
 };
+/*Proyectos que se muestran en la sección de proyectos */
 const PROJECTS = [
   {
     title: "ENGLISH BLOG - UN BLOG PARA APRENDER INGLÉS",
@@ -50,13 +49,17 @@ const PROJECTS = [
   {
     title: "Egresados UASD - App movil para egresados de la Universidad ",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
+      "Aplicación móvil para egresados de la Universidad Autónoma de Santo Domingo (UASD). Permite a los egresados conectarse, compartir sus habilidades y ser contactados para obtener trabajo.",
 
     github: "https://github.com/ericmguzmanc/egresados-uasd",
     image: "/projects/egresados.webp",
     tags: [TAGS.Angular, TAGS.IONIC],
   },
 ];
+/* * Componente principal que renderiza la sección de proyectos
+ * Utiliza los componentes TitleHeader, SectionComponent, DivSection, SvgTag y LinkButton
+  * Muestra una lista de proyectos con sus detalles, incluyendo imagen, título, descripción, etiquetas y enlaces a GitHub y vista previa.
+ */
 const { id } = Astro.props;
 ---
 
@@ -89,7 +92,7 @@ const { id } = Astro.props;
                     <li>
                       <span
                         class={`flex gap-x-2 justify-center items-center rounded-full text-xs ${tag.class} py-1 px-2 `}>
-                        <tag.icon class="size-4" />
+                        <tag.icon nameTag={tag.tagIcon} class="size-4" />
                         {tag.name}
                       </span>
                     </li>
@@ -102,14 +105,14 @@ const { id } = Astro.props;
                 <footer class="flex items-end justify-start mt-4 gap-x-4">
                   {github && (
                     <LinkButton href={github}>
-                      <GitHub class="size-6" />
+                      <SvgTag nameTag="github" class="size-6" />
                       Code
                     </LinkButton>
                   )}
 
                   {link && (
                     <LinkButton href={link}>
-                      <Link class="size-4" />
+                      <SvgTag nameTag="link" class="size-6" />
                       Preview
                     </LinkButton>
                   )}
@@ -120,5 +123,5 @@ const { id } = Astro.props;
         ))
       }
     </div>
-  </div>
+  </DivSection>
 </SectionComponent>
