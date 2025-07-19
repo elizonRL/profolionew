@@ -5,17 +5,23 @@ import Layout from '../layouts/Layout.astro';
 import Proyects from '../components/Proyects.astro';
 /* import GitHubStats from '../components/reactComponents/GithubStats.jsx'; */
 import SkillSection from '../components/SkillSection.astro';
+import StudySection from '../components/StudySection.astro';
 ---
 
-<Layout title='Elizon Rodriguez - Portfolio' description="Este es el portafolio de Elizon Rodriguez, un desarrollador web con experiencia en tecnologías modernas como react, node.js vue.js angular entre otras tecnologias. Explora mis proyectos y habilidades.">
-  
-<!-- Hero section for presentation myself -->
-<HeroSection />
-<!-- Proyects section showing my work -->
-<Proyects id="projects" />
-<!-- about section talking about my jobs and carrear -->
-<!-- GitHub Stats section -->
-<!--  <GitHubStats client:visible /> -->
-  <SkillSection/>
-<AboutMe />
+<Layout
+  title='Elizon Rodriguez - Portfolio'
+  description='Este es el portafolio de Elizon Rodriguez, un desarrollador web con experiencia en tecnologías modernas como react, node.js vue.js angular entre otras tecnologias. Explora mis proyectos y habilidades.'
+>
+  <!-- Hero section for presentation myself -->
+  <HeroSection />
+  <!-- Proyects section showing my work -->
+  <Proyects id='projects' />
+  <!-- Study section showing my studies -->
+   <StudySection />
+  <!-- about section talking about my jobs and carrear -->
+  <!-- GitHub Stats section -->
+  <!--  <GitHubStats client:visible /> -->
+  <SkillSection />
+  <!-- About me section -->
+  <AboutMe />
 </Layout>
