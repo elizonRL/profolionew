@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import ClientRouter from 'astro/components/ClientRouter.astro';
 const { title, description } = Astro.props;
 ---
 
@@ -24,8 +26,10 @@ const { title, description } = Astro.props;
 			content={Astro.generator}
 		/>
 		<title>{title}</title>
+		<ClientRouter />
 	</head>
 	<body >
+		<Header/>
 			<slot />
 	</body>
 </html>
@@ -39,5 +43,6 @@ const { title, description } = Astro.props;
 		width: 100%;
 		height: 100%;
 		@apply m-auto bg-[#0d1117];
+		scroll-behavior: smooth;
 	}
 </style>

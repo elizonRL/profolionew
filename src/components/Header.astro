@@ -1,0 +1,134 @@
+---
+const navItems = [
+    {
+        title: 'Inicio',
+        label: 'home',
+        url: '/',
+    },
+
+    {
+        title: 'Proyectos',
+        label: 'projects',
+        url: '/#projects',
+    },
+    {
+        title: 'Estudios',
+        label: 'study',
+        url: '/#study',
+    },
+    {
+        title: 'Habilidades',
+        label: 'skills',
+        url: '/#skills',
+    },
+    {
+        title: 'Sobre mí',
+        label: 'about',
+        url: '/#about',
+    },
+    {
+        title: 'Contacto',
+        label: 'contacto',
+        url: 'mailto:elizorodriguez16@gmail.com',
+    },
+];
+---
+
+<header
+    class='fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2'
+>
+    <nav
+        class='flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center'
+    >
+        {
+            navItems.map((link) => (
+                <a
+                    class='relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500'
+                    aria-label={link.label}
+                    href={link.url}
+                >
+                    {link.title}
+                </a>
+            ))
+        }
+    </nav>
+</header>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('header nav a');
+        
+        const callback = (entries: any[]) => {
+            console.log(entries);
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    console.log(entry.target.id);
+                    navItems.forEach((item) => {
+                        console.log(item.getAttribute('aria-label'),".", entry.target.id);
+                        if (
+                            item.getAttribute('aria-label') === entry.target.id
+                        ) {
+                            item.classList.add('text-blue-500');
+                        } else {
+                            item.classList.remove('text-blue-500');
+                        }
+                    });
+                }
+            });
+
+        };
+
+        const observer = new IntersectionObserver(callback, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3,
+        });
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Cleanup function
+        document.onvisibilitychange = () => {
+            if (document.visibilityState === 'hidden') {
+                observer.disconnect();
+            } else {
+                sections.forEach((section) => {
+                    observer.observe(section);
+                });
+            }
+        };
+    });
+</script>
+
+<style>
+    nav {
+        animation: nav-shadown 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
+    }
+
+    nav {
+        background-color: rgba(31, 41, 55, 0.9);
+    }
+    .dark nav {
+        /* dark:bg-gray-800/90 */
+    }
+
+    @keyframes nav-shadown {
+        0% {
+            background-color: rgba(255, 255, 255, 0); /* bg-white/0 */
+        }
+        0%.dark {
+            background-color: rgba(31, 41, 55, 0); /* dark:bg-gray-800/0 */
+        }
+        to {
+            box-shadow:
+                0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* ring-1 ring-white/10 */
+            backdrop-filter: blur(20px); /* backdrop-blur */
+        }
+    }
+</style>
