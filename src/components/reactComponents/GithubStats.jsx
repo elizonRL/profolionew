@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Loading from "./Loading.jsx";
+import Skeleton from "./Skeleton.jsx";
 const GithubStats = () => {
   // Ensure the USER_NAME environment variable is set
-  const username = import.meta.env.USER_NAME || "elizonRL"; // Default to 'elizonRL' if not set
+  const username = import.meta.env.PUBLIC_GITHUB_USER; // Default to 'elizonRL' if not set
   const githubUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,7 +41,8 @@ const GithubStats = () => {
             Más proyectos
           </span>
           {loading ? (
-            <Loading />
+
+            <Skeleton />
           ) : (
             <ul className="list-none p-3 text-sm">
               {repos
@@ -53,10 +54,10 @@ const GithubStats = () => {
                       rel="noopener noreferrer"
                       className="text-blue-500 font-semibold group text-xl">
                       {repo.name}
-                    <p className="text-gray-600 font-semibold text-sm group-hover:text-amber-100">{repo.description}</p>
-                    <span className="text-sm text-gray-500 group-hover:text-amber-100">
-                      ⭐ {repo.stars} | 🍴 {repo.forks_count}
-                    </span>
+                      <p className="text-gray-600 font-semibold text-sm group-hover:text-amber-100">{repo.description}</p>
+                      <span className="text-sm text-gray-500 group-hover:text-amber-100">
+                        ⭐ {repo.stars} | 🍴 {repo.forks_count}
+                      </span>
                     </a>
                   </li>
                 ))
@@ -64,6 +65,7 @@ const GithubStats = () => {
                 .slice(0, 6)}
             </ul>
           )}
+
         </div>
         <div className="md:col-span-2 md:row-span-2 md:col-start-3">
           <img
