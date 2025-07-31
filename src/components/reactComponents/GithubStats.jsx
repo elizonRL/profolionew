@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Loading from "./Loading.jsx";
+import Skeleton from "./Skeleton.jsx";
 const GithubStats = () => {
   // Ensure the USER_NAME environment variable is set
   const username = import.meta.env.USER_NAME || "elizonRL"; // Default to 'elizonRL' if not set
@@ -41,7 +42,8 @@ const GithubStats = () => {
             Más proyectos
           </span>
           {loading ? (
-            <Loading />
+            
+            <Skeleton />
           ) : (
             <ul className="list-none p-3 text-sm">
               {repos
@@ -64,6 +66,7 @@ const GithubStats = () => {
                 .slice(0, 6)}
             </ul>
           )}
+          
         </div>
         <div className="md:col-span-2 md:row-span-2 md:col-start-3">
           <img
