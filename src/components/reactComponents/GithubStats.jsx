@@ -42,7 +42,7 @@ const GithubStats = () => {
             Más proyectos
           </span>
           {loading ? (
-            
+
             <Skeleton />
           ) : (
             <ul className="list-none p-3 text-sm">
@@ -55,10 +55,10 @@ const GithubStats = () => {
                       rel="noopener noreferrer"
                       className="text-blue-500 font-semibold group text-xl">
                       {repo.name}
-                    <p className="text-gray-600 font-semibold text-sm group-hover:text-amber-100">{repo.description}</p>
-                    <span className="text-sm text-gray-500 group-hover:text-amber-100">
-                      ⭐ {repo.stars} | 🍴 {repo.forks_count}
-                    </span>
+                      <p className="text-gray-600 font-semibold text-sm group-hover:text-amber-100">{repo.description}</p>
+                      <span className="text-sm text-gray-500 group-hover:text-amber-100">
+                        ⭐ {repo.stars} | 🍴 {repo.forks_count}
+                      </span>
                     </a>
                   </li>
                 ))
@@ -66,7 +66,7 @@ const GithubStats = () => {
                 .slice(0, 6)}
             </ul>
           )}
-          
+
         </div>
         <div className="md:col-span-2 md:row-span-2 md:col-start-3">
           <img
