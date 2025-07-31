@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Loading from "./Loading.jsx";
 import Skeleton from "./Skeleton.jsx";
 const GithubStats = () => {
   // Ensure the USER_NAME environment variable is set
