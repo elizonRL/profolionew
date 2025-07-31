@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Skeleton from "./Skeleton.jsx";
 const GithubStats = () => {
   // Ensure the USER_NAME environment variable is set
-  const username = import.meta.env.USER_NAME || "elizonRL"; // Default to 'elizonRL' if not set
+  const username = import.meta.env.PUBLIC_GITHUB_USER; // Default to 'elizonRL' if not set
   const githubUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);

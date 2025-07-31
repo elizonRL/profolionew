@@ -74,16 +74,9 @@ const navItems = [
         const navItems = document.querySelectorAll('header nav a');
 
         const callback = (entries: any[]) => {
-            console.log(entries);
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    console.log(entry.target.id);
                     navItems.forEach((item) => {
-                        console.log(
-                            item.getAttribute('aria-label'),
-                            '.',
-                            entry.target.id,
-                        );
                         if (
                             item.getAttribute('aria-label') === entry.target.id
                         ) {
@@ -129,7 +122,6 @@ const navItems = [
     nav {
         background-color: rgba(31, 41, 55, 0.3);
     }
-  
 
     @keyframes nav-shadown {
         0% {
