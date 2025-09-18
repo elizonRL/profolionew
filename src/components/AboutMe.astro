@@ -3,51 +3,45 @@ import Paragraph from './Paragraph.astro';
 import TitleHeader from './TitleHeader.astro';
 import SectionComponent from './SectionComponent.astro';
 import DivSection from './DivSection.astro';
+import { getTranslations } from '../i18n';
+
+const currentLocale = Astro.currentLocale || 'es';
+const t = getTranslations(currentLocale);
 ---
 
 <SectionComponent color='bg-gray-900' id="about">
   <DivSection>
     <TitleHeader
-      titleH2='Sobre mí'
+      titleH2={t.about.title}
       icon=''
+      i18nKey="about.title"
     />
     <aside
       class='w-full m-0 flex gap-20 flex-col-reverse lg:flex-row items-center justify-center text-pretty'
     >
       <div class='w-2/3 text-wrap text-gray-300'>
         <Paragraph>
-          Soy Licenciado en Informática con formación integral en el desarrollo
-          de soluciones tecnológicas y un fuerte enfoque en el desarrollo web
-          moderno. Trabajo con tecnologías del ecosistema JavaScript como <span
-            class='text-[#61DBFB] font-semibold'>React</span
-          >,
-          <span class='text-[#B52E31] font-semibold'>Angular</span>, <span
-            class='text-[#42b883] font-semibold'>Vue</span
-          > y <span class='text-[#339933] font-semibold'>Node.js</span>, creando
-          aplicaciones eficientes, escalables y centradas en el usuario.
+          <span data-i18n="about.paragraph1">
+            {currentLocale === 'es' 
+              ? <>Soy Licenciado en Informática con formación integral en el desarrollo de soluciones tecnológicas y un fuerte enfoque en el desarrollo web moderno. Trabajo con tecnologías del ecosistema JavaScript como <span class='text-[#61DBFB] font-semibold'>React</span>, <span class='text-[#B52E31] font-semibold'>Angular</span>, <span class='text-[#42b883] font-semibold'>Vue</span> y <span class='text-[#339933] font-semibold'>Node.js</span>, creando aplicaciones eficientes, escalables y centradas en el usuario.</>
+              : <>I am a Computer Science graduate with comprehensive training in the development of technological solutions and a strong focus on modern web development. I work with JavaScript ecosystem technologies such as <span class='text-[#61DBFB] font-semibold'>React</span>, <span class='text-[#B52E31] font-semibold'>Angular</span>, <span class='text-[#42b883] font-semibold'>Vue</span> and <span class='text-[#339933] font-semibold'>Node.js</span>, creating efficient, scalable and user-centered applications.</>
+            }
+          </span>
         </Paragraph>
         <Paragraph>
-          He desarrollado proyectos que abarcan desde el diseño de interfaces
-          dinámicas hasta la implementación de lógica de negocio en frontend y
-          backend, incluyendo integraciones como envío seguro de correos,
-          validación avanzada de formularios y manejo confiable de datos. Mi
-          experiencia incluye el trabajo con bases de datos no relacionales (<span
-            class='text-amber-50 font-semibold'>MongoDB</span
-          >) y relacionales (<span class='text-amber-50 font-semibold'
-            >MySQL, Oracle, SQL Server</span
-          >), así como el uso de <span class='text-amber-50 font-semibold'
-            >Git y GitHub</span
-          > para una gestión colaborativa del código.
+          <span data-i18n="about.paragraph2">
+            {currentLocale === 'es'
+              ? <>He desarrollado proyectos que abarcan desde el diseño de interfaces dinámicas hasta la implementación de lógica de negocio en frontend y backend, incluyendo integraciones como envío seguro de correos, validación avanzada de formularios y manejo confiable de datos. Mi experiencia incluye el trabajo con bases de datos no relacionales (<span class='text-amber-50 font-semibold'>MongoDB</span>) y relacionales (<span class='text-amber-50 font-semibold'>MySQL, Oracle, SQL Server</span>), así como el uso de <span class='text-amber-50 font-semibold'>Git y GitHub</span> para una gestión colaborativa del código.</>
+              : <>I have developed projects ranging from designing dynamic interfaces to implementing business logic in frontend and backend, including integrations such as secure email sending, advanced form validation and reliable data handling. My experience includes working with non-relational databases (<span class='text-amber-50 font-semibold'>MongoDB</span>) and relational databases (<span class='text-amber-50 font-semibold'>MySQL, Oracle, SQL Server</span>), as well as using <span class='text-amber-50 font-semibold'>Git and GitHub</span> for collaborative code management.</>
+            }
+          </span>
           <Paragraph>
-            Además, cuento con conocimientos en diseño <span class='text-amber-50 font-semibold'
-            >UX/UI utilizando Figma</span>,
-            lo que me permite unir la parte técnica con una experiencia visual
-            intuitiva y atractiva. Me defino como un profesional <span class='text-amber-50 font-semibold'
-            >proactivo</span>,
-            <span class='text-amber-50 font-semibold'
-            >responsable</span> y en <span class='text-amber-50 font-semibold'
-            >permanente actualización</span>, con el objetivo de aportar
-            soluciones innovadoras y de calidad en cada proyecto que desarrollo.
+            <span data-i18n="about.paragraph3">
+              {currentLocale === 'es'
+                ? <>Además, cuento con conocimientos en diseño <span class='text-amber-50 font-semibold'>UX/UI utilizando Figma</span>, lo que me permite unir la parte técnica con una experiencia visual intuitiva y atractiva. Me defino como un profesional <span class='text-amber-50 font-semibold'>proactivo</span>, <span class='text-amber-50 font-semibold'>responsable</span> y en <span class='text-amber-50 font-semibold'>permanente actualización</span>, con el objetivo de aportar soluciones innovadoras y de calidad en cada proyecto que desarrollo.</>
+                : <>Additionally, I have knowledge in <span class='text-amber-50 font-semibold'>UX/UI design using Figma</span>, which allows me to unite the technical part with an intuitive and attractive visual experience. I define myself as a <span class='text-amber-50 font-semibold'>proactive</span>, <span class='text-amber-50 font-semibold'>responsible</span> professional in <span class='text-amber-50 font-semibold'>permanent updating</span>, with the objective of providing innovative and quality solutions in each project I develop.</>
+              }
+            </span>
           </Paragraph>
         </Paragraph>
       </div>

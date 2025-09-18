@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "study": "Estudios",
+    "skills": "Habilidades",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "title": "Desarrollador Full Stack",
+    "description": "Licenciado en Informática dedicado a diseñar y construir soluciones web innovadoras, combinando calidad técnica y una experiencia de usuario sobresaliente.",
+    "downloadCV": "Descargar CV",
+    "contactMe": "Contáctame"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "viewProject": "Preview",
+    "viewCode": "Code",
+    "englishBlog": {
+      "title": "ENGLISH BLOG - UN BLOG PARA APRENDER INGLÉS",
+      "description": "Blog interactivo para aprender inglés desde cero. Incluye artículos y recursos gratuitos. Desarrollado con Astro y Tailwind CSS."
+    },
+    "egresadosUASD": {
+      "title": "Egresados UASD - App móvil para egresados de la Universidad",
+      "description": "Aplicación móvil para egresados de la Universidad Autónoma de Santo Domingo (UASD). Permite a los egresados conectarse, compartir sus habilidades y ser contactados para obtener trabajo."
+    }
+  },
+  "study": {
+    "title": "Mis Estudios",
+    "description": "Aquí están mis estudios y formación académica:",
+    "degree": {
+      "title": "Licenciatura en Informática",
+      "institution": "Universidad Autónoma de Santo Domingo",
+      "duration": "2016 - 2024",
+      "description": "Graduado de la Licenciatura en Informática de la UASD, con formación sólida en el desarrollo y mantenimiento de software, sistemas de información, bases de datos y redes. Preparado para enfrentar retos tecnológicos en pequeñas, medianas y grandes organizaciones, con enfoque en ingeniería de software y soluciones empresariales."
+    },
+    "courses": [
+      {
+        "title": "Curso java Developer",
+        "institution": "Universidad Autónoma de Santo Domingo",
+        "duration": "2022 - 2022",
+        "description": "Curso intensivo de Java Developer, cubriendo fundamentos de programación, estructuras de datos y desarrollo de aplicaciones."
+      },
+      {
+        "title": "Curso de Desarrollo front-end con html, css y javascript",
+        "institution": "Master mind",
+        "duration": "2021 - 2021",
+        "description": "Curso curso de desarrollo front-end, abarcando HTML, CSS y JavaScript, con un enfoque práctico en la creación de sitios web responsivos."
+      },
+      {
+        "title": "Analisis de datos con SQL",
+        "institution": "Universidad Autónoma de Santo Domingo",
+        "duration": "2019 - 2019",
+        "description": "Curso de análisis de datos con SQL, cubriendo desde consultas básicas hasta técnicas avanzadas de manipulación y análisis de datos."
+      },
+      {
+        "title": "Curso de analisis de datos con mongoDB",
+        "institution": "Master mind",
+        "duration": "2021 - 2021",
+        "description": "Curso de análisis de datos con MongoDB, abarcando desde la creación de bases de datos hasta consultas avanzadas y optimización de rendimiento."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Habilidades & Github Stats",
+    "description": "Aquí tienes algunas de mis habilidades y estadísticas en GitHub. Puedes ver más detalles sobre mis proyectos y contribuciones en mi perfil de GitHub.",
+    "techStack": "Stack de tecnologias"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "paragraph1": "Soy Licenciado en Informática con formación integral en el desarrollo de soluciones tecnológicas y un fuerte enfoque en el desarrollo web moderno. Trabajo con tecnologías del ecosistema JavaScript como React, Angular, Vue y Node.js, creando aplicaciones eficientes, escalables y centradas en el usuario.",
+    "paragraph2": "He desarrollado proyectos que abarcan desde el diseño de interfaces dinámicas hasta la implementación de lógica de negocio en frontend y backend, incluyendo integraciones como envío seguro de correos, validación avanzada de formularios y manejo confiable de datos. Mi experiencia incluye el trabajo con bases de datos no relacionales (MongoDB) y relacionales (MySQL, Oracle, SQL Server), así como el uso de Git y GitHub para una gestión colaborativa del código.",
+    "paragraph3": "Además, cuento con conocimientos en diseño UX/UI utilizando Figma, lo que me permite unir la parte técnica con una experiencia visual intuitiva y atractiva. Me defino como un profesional proactivo, responsable y en permanente actualización, con el objetivo de aportar soluciones innovadoras y de calidad en cada proyecto que desarrollo."
+  },
+  "contact": {
+    "title": "Contacto",
+    "contacts": "Contactos",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "location": "Ubicación"
+  }
+}

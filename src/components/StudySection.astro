@@ -2,52 +2,24 @@
 import SectionComponent from './SectionComponent.astro';
 import TitleHeader from './TitleHeader.astro';
 import DivSection from './DivSection.astro';
+import { getTranslations } from '../i18n';
+
+const currentLocale = Astro.currentLocale || 'es';
+const t = getTranslations(currentLocale);
 const studyData = [
-  {
-    title: 'Licenciatura en Informática',
-    institution: 'Universidad Autónoma de Santo Domingo',
-    duration: '2016 - 2024',
-    description:
-      'Graduado de la Licenciatura en Informática de la UASD, con formación sólida en el desarrollo y mantenimiento de software, sistemas de información, bases de datos y redes. Preparado para enfrentar retos tecnológicos en pequeñas, medianas y grandes organizaciones, con enfoque en ingeniería de software y soluciones empresariales.',
-  },
-  {
-    title: 'Curso java Developer',
-    institution: 'Universidad Autónoma de Santo Domingo',
-    duration: '2022 - 2022',
-    description:
-      'Curso intensivo de Java Developer, cubriendo fundamentos de programación, estructuras de datos y desarrollo de aplicaciones.',
-  },
-  {
-    title: 'Curso de Desarrollo front-end con html, css y javascript',
-    institution: 'Master mind',
-    duration: '2021 - 2021',
-    description:
-      'Curso curso de desarrollo front-end, abarcando HTML, CSS y JavaScript, con un enfoque práctico en la creación de sitios web responsivos.',
-  },
-  {
-    title: 'Analisis de datos con SQL',
-    institution: 'Universidad Autónoma de Santo Domingo',
-    duration: '2019 - 2019',
-    description:
-      'Curso de análisis de datos con SQL, cubriendo desde consultas básicas hasta técnicas avanzadas de manipulación y análisis de datos.',
-  },
-  {
-    title: 'Curso de analisis de datos con mongoDB',
-    institution: 'Master mind',
-    duration: '2021 - 2021',
-    description:
-      'Curso de análisis de datos con MongoDB, abarcando desde la creación de bases de datos hasta consultas avanzadas y optimización de rendimiento.',
-  },
+  t.study.degree,
+  ...t.study.courses
 ];
 ---
 
 <SectionComponent id='study'>
   <DivSection>
     <TitleHeader
-      titleH2='Mis Estudios'
+      titleH2={t.study.title}
       icon='📚'
+      i18nKey="study.title"
     />
-    <p class='text-lg mb-6'>Aquí están mis estudios y formación académica:</p>
+    <p class='text-lg mb-6' data-i18n="study.description">{t.study.description}</p>
     {
       studyData.map((study) => (
         <div class="group relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]">
@@ -56,10 +28,10 @@ const studyData = [
               <span class='text-accent -left-[43px] absolute rounded-full text-5xl'>
                 •
               </span>
-              <h3 class='text-xl font-bold text-accent transition duration-305 linear group-hover:scale-105 group-hover:-translate-y-1 '>
+              <h3 class='text-xl font-bold text-accent transition duration-305 linear group-hover:scale-105 group-hover:-translate-y-1 ' data-study-title>
                 {study.title}
               </h3>
-              <h4 class='font-semibold text-xl text-gray-600 dark:text-white'>
+              <h4 class='font-semibold text-xl text-gray-600 dark:text-white' data-study-institution>
                 {study.institution}
               </h4>
               <time class='p-0 m-0 text-sm text-gray-600/80 dark:text-white/80'>
@@ -68,7 +40,7 @@ const studyData = [
             </div>
           </div>
           <div class='relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3'>
-            <p class='text-base'>{study.description}</p>
+            <p class='text-base' data-study-description>{study.description}</p>
           </div>
         </div>
       ))

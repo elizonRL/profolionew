@@ -1,35 +1,35 @@
 ---
+import { getTranslations } from '../i18n';
+import LanguageToggle from './LanguageToggle.astro';
+
+const currentLocale = Astro.currentLocale || 'es';
+const t = getTranslations(currentLocale);
+
 const navItems = [
     {
-        title: 'Inicio',
+        title: t.nav.home,
         label: 'home',
-        url: '/',
+        url: currentLocale === 'es' ? '/' : '/en',
     },
-
     {
-        title: 'Proyectos',
+        title: t.nav.projects,
         label: 'projects',
-        url: '/#projects',
+        url: currentLocale === 'es' ? '/#projects' : '/en#projects',
     },
     {
-        title: 'Estudios',
+        title: t.nav.study,
         label: 'study',
-        url: '/#study',
+        url: currentLocale === 'es' ? '/#study' : '/en#study',
     },
     {
-        title: 'Habilidades',
+        title: t.nav.skills,
         label: 'skills',
-        url: '/#skills',
+        url: currentLocale === 'es' ? '/#skills' : '/en#skills',
     },
     {
-        title: 'Sobre mí',
+        title: t.nav.about,
         label: 'about',
-        url: '/#about',
-    },
-    {
-        title: 'Contacto',
-        label: 'contacto',
-        url: 'mailto:elizorodriguez16@gmail.com',
+        url: currentLocale === 'es' ? '/#about' : '/en#about',
     },
 ];
 ---
@@ -38,34 +38,24 @@ const navItems = [
     class='fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2'
 >
     <nav
-        class='flex px-3 text-sm font-medium rounded-xl text-gray-600 dark:text-gray-200 justify-center items-center'
+        class='flex px-3 text-sm font-medium rounded-xl text-gray-600 dark:text-gray-200 justify-center items-center gap-2 min-w-[400px]'
     >
         {
-            navItems.map((link) =>
-                link.title == 'Contacto' ? (
-                    <a
-                        href={link.url}
-                        area-label={link.label}
-                    >
-                        <svg
-                            class='size-6 '
-                            fill='currentColor'
-                        >
-                            <use href='/assets/sprite.svg#mail' />
-                        </svg>
-                    </a>
-                ) : (
-                    <a
-                        class='relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500'
-                        aria-label={link.label}
-                        href={link.url}
-                        data-astro-history="replace"
-                    >
-                        {link.title}
-                    </a>
-                ),
-            )
+            navItems.map((link) => (
+                <a
+                    class='relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500 min-w-[70px] text-center'
+                    aria-label={link.label}
+                    href={link.url}
+                    data-astro-history="replace"
+                    data-nav-item={link.label}
+                >
+                    {link.title}
+                </a>
+            ))
         }
+        <div class='ml-2 pl-2 border-l border-gray-600/30'>
+            <LanguageToggle />
+        </div>
     </nav>
 </header>
 

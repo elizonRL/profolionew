@@ -1,0 +1,59 @@
+---
+const currentLocale = Astro.currentLocale || 'es';
+---
+
+<div class="language-toggle">
+    <div 
+        id="language-btn" 
+        class="flex items-center gap-1.5 px-2 py-1 rounded-full hover:bg-white/5 transition-all duration-300 cursor-pointer group"
+        data-current-locale={currentLocale}
+        title={currentLocale === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+    >
+        <svg class="size-4 opacity-80 group-hover:opacity-100 transition-opacity duration-300" fill="currentColor">
+            <use href={`/assets/sprite.svg#flag-${currentLocale === 'es' ? 'do' : 'us'}`} />
+        </svg>
+        <span class="text-xs font-light opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+            {currentLocale === 'es' ? 'ES' : 'EN'}
+        </span>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const languageBtn = document.getElementById('language-btn');
+        
+        if (languageBtn) {
+            languageBtn.addEventListener('click', async () => {
+                const currentLocale = document.documentElement.lang || 'es';
+                const newLocale = currentLocale === 'es' ? 'en' : 'es';
+                
+                // Importar dinámicamente el cliente i18n
+                const { i18nClient } = await import('../i18n/client.ts');
+                
+                // Cambiar idioma sin recargar
+                i18nClient.setLocale(newLocale);
+                
+                // Actualizar el atributo lang del documento
+                document.documentElement.lang = newLocale;
+            });
+        }
+    });
+</script>
+
+<style>
+    .language-toggle {
+        @apply flex items-center;
+    }
+    
+    .language-toggle div:hover {
+        @apply scale-105;
+    }
+    
+    .language-toggle div:active {
+        @apply scale-95;
+    }
+    
+    .language-toggle div {
+        @apply transition-all duration-300;
+    }
+</style>

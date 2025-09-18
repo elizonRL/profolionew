@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "study": "Studies",
+    "skills": "Skills",
+    "about": "About me",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "title": "Full Stack Developer",
+    "description": "Computer Science graduate dedicated to designing and building innovative web solutions, combining technical quality and outstanding user experience.",
+    "downloadCV": "Download CV",
+    "contactMe": "Contact Me"
+  },
+  "projects": {
+    "title": "Projects",
+    "viewProject": "Preview",
+    "viewCode": "Code",
+    "englishBlog": {
+      "title": "ENGLISH BLOG - A BLOG TO LEARN ENGLISH",
+      "description": "Interactive blog to learn English from scratch. Includes articles and free resources. Developed with Astro and Tailwind CSS."
+    },
+    "egresadosUASD": {
+      "title": "UASD Graduates - Mobile app for university graduates",
+      "description": "Mobile application for graduates of the Autonomous University of Santo Domingo (UASD). Allows graduates to connect, share their skills and be contacted for job opportunities."
+    }
+  },
+  "study": {
+    "title": "My Studies",
+    "description": "Here are my studies and academic background:",
+    "degree": {
+      "title": "Bachelor's Degree in Computer Science",
+      "institution": "Autonomous University of Santo Domingo",
+      "duration": "2016 - 2024",
+      "description": "Graduate of the Bachelor's Degree in Computer Science from UASD, with solid training in software development and maintenance, information systems, databases and networks. Prepared to face technological challenges in small, medium and large organizations, with a focus on software engineering and business solutions."
+    },
+    "courses": [
+      {
+        "title": "Java Developer Course",
+        "institution": "Autonomous University of Santo Domingo",
+        "duration": "2022 - 2022",
+        "description": "Intensive Java Developer course, covering programming fundamentals, data structures and application development."
+      },
+      {
+        "title": "Front-end Development Course with HTML, CSS and JavaScript",
+        "institution": "Master mind",
+        "duration": "2021 - 2021",
+        "description": "Front-end development course, covering HTML, CSS and JavaScript, with a practical focus on creating responsive websites."
+      },
+      {
+        "title": "Data Analysis with SQL",
+        "institution": "Autonomous University of Santo Domingo",
+        "duration": "2019 - 2019",
+        "description": "Data analysis course with SQL, covering from basic queries to advanced data manipulation and analysis techniques."
+      },
+      {
+        "title": "Data Analysis Course with MongoDB",
+        "institution": "Master mind",
+        "duration": "2021 - 2021",
+        "description": "Data analysis course with MongoDB, covering from database creation to advanced queries and performance optimization."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills & Github Stats",
+    "description": "Here are some of my skills and GitHub statistics. You can see more details about my projects and contributions on my GitHub profile.",
+    "techStack": "Technology Stack"
+  },
+  "about": {
+    "title": "About me",
+    "paragraph1": "I am a Computer Science graduate with comprehensive training in the development of technological solutions and a strong focus on modern web development. I work with JavaScript ecosystem technologies such as React, Angular, Vue and Node.js, creating efficient, scalable and user-centered applications.",
+    "paragraph2": "I have developed projects ranging from designing dynamic interfaces to implementing business logic in frontend and backend, including integrations such as secure email sending, advanced form validation and reliable data handling. My experience includes working with non-relational databases (MongoDB) and relational databases (MySQL, Oracle, SQL Server), as well as using Git and GitHub for collaborative code management.",
+    "paragraph3": "Additionally, I have knowledge in UX/UI design using Figma, which allows me to unite the technical part with an intuitive and attractive visual experience. I define myself as a proactive, responsible professional in permanent updating, with the objective of providing innovative and quality solutions in each project I develop."
+  },
+  "contact": {
+    "title": "Contact",
+    "contacts": "Contacts",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location"
+  }
+}

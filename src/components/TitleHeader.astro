@@ -1,10 +1,11 @@
 ---
-const { titleH2, icon  } = Astro.props;
+const { titleH2, icon, i18nKey } = Astro.props;
 ---
 
 <h2 class="text-3xl md:text-4xl font-bold mb-6">
       {icon && icon}<span
         class="bg-gradient-to-tr from-accent to-secondary text-transparent bg-clip-text inline-block"
+        data-i18n-title={i18nKey}
         >{titleH2}</span
       >
     </h2>

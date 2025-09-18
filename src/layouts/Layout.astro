@@ -2,11 +2,13 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import ClientRouter from 'astro/components/ClientRouter.astro';
+
 const { title, description } = Astro.props;
+const currentLocale = Astro.currentLocale || 'es';
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang={currentLocale}>
 	<head>
 		<meta charset='UTF-8' />
 		<meta
@@ -27,6 +29,7 @@ const { title, description } = Astro.props;
 		/>
 		<title>{title}</title>
 		<ClientRouter />
+		<script src="/src/scripts/i18n-init.ts"></script>
 	</head>
 	<body >
 		<Header/>
