@@ -40,11 +40,27 @@ const t = getTranslations(currentLocale);
   </article>
 
   <!-- Imagen -->
-  <div class='lg:w-1/4 mb-8 md:mb-0 flex flex-col justify-center items-center'>
+  <div class='lg:w-1/4 mb-8 md:mb-0 flex flex-col justify-center items-center relative'>
+    <!-- Logos animados -->
+    <div class='absolute inset-0 w-72 h-72 mx-auto'>
+      <svg class='tech-logo tech-logo-1 absolute w-10 h-10' fill='currentColor'>
+        <use href='/assets/sprite.svg#react' />
+      </svg>
+      <svg class='tech-logo tech-logo-2 absolute w-10 h-10' fill='currentColor'>
+        <use href='/assets/sprite.svg#html5' />
+      </svg>
+      <svg class='tech-logo tech-logo-3 absolute w-10 h-10' fill='currentColor'>
+        <use href='/assets/sprite.svg#css' />
+      </svg>
+      <svg class='tech-logo tech-logo-4 absolute w-10 h-10' fill='currentColor'>
+        <use href='/assets/sprite.svg#javascript' />
+      </svg>
+    </div>
+    
     <img
       src='/img/elizonperfil.webp'
       alt='Avatar de Elizon'
-      class='w-72 h-72 object-cover overflow-hidden rounded-full shadow-lg justify-center items-center border-4 border-blue-500'
+      class='w-72 h-72 object-cover overflow-hidden rounded-full shadow-lg justify-center items-center border-4 border-blue-500 relative z-10'
     />
 
     <div class='flex flex-col items-center justify-center mt-4'>
@@ -97,12 +113,108 @@ const t = getTranslations(currentLocale);
           </a>
         </a>
       </div>
-      <svg
-        class='w-8 h-8 text-blue-500 arrow-down sm:absolute bottom-10 right-1/2 z-10 hidden sm:block'
-        fill='currentColor'
-      >
-        <use href='/assets/sprite.svg#arrow-down'></use>
-      </svg>
     </div>
   </div>
+  
+  <svg
+    class='w-8 h-8 text-blue-500 arrow-down absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 hidden sm:block'
+    fill='currentColor'
+  >
+    <use href='/assets/sprite.svg#arrow-down'></use>
+  </svg>
 </section>
+
+<style>
+  .tech-logo {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+    animation: logoFloat 2s ease-out forwards;
+  }
+  
+  .tech-logo.floating {
+    animation: logoFloat 2s ease-out forwards, continuousFloat 3s ease-in-out infinite 2s;
+  }
+  
+  .tech-logo-1 {
+    top: -5%;
+    right: -5%;
+    animation-delay: 0.5s;
+    z-index: 20;
+  }
+  
+  .tech-logo-2 {
+    top: 35%;
+    left: -15%;
+    animation-delay: 0.8s;
+    z-index: 20;
+  }
+  
+  .tech-logo-3 {
+    bottom: 35%;
+    right: -15%;
+    animation-delay: 1.1s;
+    z-index: 20;
+  }
+  
+  .tech-logo-4 {
+    bottom: -5%;
+    left: -5%;
+    animation-delay: 1.4s;
+    z-index: 20;
+  }
+  
+  @keyframes logoFloat {
+    0% {
+      opacity: 0;
+      transform: scale(0) rotate(-180deg) translateY(50px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.2) rotate(-90deg) translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg) translateY(0);
+    }
+  }
+  
+  .tech-logo:hover {
+    transform: scale(1.1) rotate(5deg);
+    transition: transform 0.3s ease;
+  }
+  
+  .tech-logo:after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    z-index: -1;
+  }
+  
+  .tech-logo-1 { animation: logoFloat 2s ease-out forwards, continuousFloat1 3s ease-in-out infinite 2s; }
+  .tech-logo-2 { animation: logoFloat 2s ease-out forwards, continuousFloat2 3.5s ease-in-out infinite 2s; }
+  .tech-logo-3 { animation: logoFloat 2s ease-out forwards, continuousFloat3 4s ease-in-out infinite 2s; }
+  .tech-logo-4 { animation: logoFloat 2s ease-out forwards, continuousFloat4 3.2s ease-in-out infinite 2s; }
+  
+  @keyframes continuousFloat1 {
+    0%, 100% { transform: scale(1) rotate(0deg) translateY(0px); }
+    50% { transform: scale(1) rotate(2deg) translateY(-8px); }
+  }
+  
+  @keyframes continuousFloat2 {
+    0%, 100% { transform: scale(1) rotate(0deg) translateY(0px); }
+    50% { transform: scale(1) rotate(-2deg) translateY(-6px); }
+  }
+  
+  @keyframes continuousFloat3 {
+    0%, 100% { transform: scale(1) rotate(0deg) translateY(0px); }
+    50% { transform: scale(1) rotate(1deg) translateY(-10px); }
+  }
+  
+  @keyframes continuousFloat4 {
+    0%, 100% { transform: scale(1) rotate(0deg) translateY(0px); }
+    50% { transform: scale(1) rotate(-1deg) translateY(-7px); }
+  }
+  
+</style>
