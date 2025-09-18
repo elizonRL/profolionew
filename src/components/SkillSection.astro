@@ -4,6 +4,10 @@ import TitleHeader from "./TitleHeader.astro";
 import DivSection from "./DivSection.astro";
 import GithubStats from "./reactComponents/GithubStats";
 import TechSkill from "./TechSkill.astro";
+import { getTranslations } from '../i18n';
+
+const currentLocale = Astro.currentLocale || 'es';
+const t = getTranslations(currentLocale);
 const techStack = [
   { name: "JavaScript", icon: "javascript" },
   { name: "React", icon: "react" },
@@ -29,18 +33,16 @@ const techStack = [
 
 <SectionComponent id="skills">
   <DivSection>
-    <TitleHeader titleH2="Habilidades & Github Stats" icon="🛠️" />
+    <TitleHeader titleH2={t.skills.title} icon="🛠️" i18nKey="skills.title" />
     <article class="w-full">
       <aside>
         <GithubStats client:visible />
-        <p class="text-gray-600 dark:text-gray-400 mt-4">
-          Aquí tienes algunas de mis habilidades y estadísticas en GitHub.
-          Puedes ver más detalles sobre mis proyectos y contribuciones en mi
-          perfil de GitHub.
+        <p class="text-gray-600 dark:text-gray-400 mt-4" data-i18n="skills.description">
+          {t.skills.description}
         </p>
       </aside>
       <aside class="mt-4">
-        <h3 class="font-bold text-3xl md:text-4xl">Stack de tecnologias</h3>
+        <h3 class="font-bold text-3xl md:text-4xl" data-i18n="skills.techStack">{t.skills.techStack}</h3>
         <TechSkill techStack={techStack} />
       </aside>
     </article>

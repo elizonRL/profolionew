@@ -7,9 +7,15 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   vite: {
     plugins: [tailwindcss()]
   },
-  // Removed invalid 'env' property. Use environment variables or Astro's runtime config instead.
   integrations: [react()]
 });
