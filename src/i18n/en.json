@@ -10,7 +10,7 @@
   "hero": {
     "greeting": "Hello, I'm",
     "title": "Full Stack Developer",
-    "description": "Computer Science graduate dedicated to designing and building innovative web solutions, combining technical quality and outstanding user experience.",
+    "description": "I transform <span class='text-blue-400 font-semibold'>ideas</span> into <span class='text-blue-300 font-semibold'>exceptional</span> digital experiences. Specialized in creating <span class='text-gray-300 font-semibold'>modern</span> web applications that combine <span class='text-blue-500 font-semibold'>elegant</span> design, <span class='text-white font-semibold'>robust</span> functionality, and the best user experience.",
     "downloadCV": "Download CV",
     "contactMe": "Contact Me"
   },
