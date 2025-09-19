@@ -9,5 +9,5 @@ export function getTranslations(locale: string = 'es') {
 
 export function t(key: string, locale: string = 'es') {
   const translation = getTranslations(locale);
-  return key.split('.').reduce((obj, k) => obj?.[k], translation) || key;
+  return key.split('.').reduce((obj: any, k) => obj?.[k], translation) || key;
 }
