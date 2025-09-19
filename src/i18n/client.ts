@@ -249,3 +249,8 @@ export class I18nClient {
 
 // Instancia global
 export const i18nClient = new I18nClient();
+
+// Función para actualizar idioma dinámicamente
+export function updatePageLanguage(newLocale: string) {
+  i18nClient.setLocale(newLocale);
+}

@@ -15,8 +15,7 @@ const t = getTranslations(currentLocale);
     <h1 class='text-4xl md:text-6xl font-bold mb-4'>
       <span data-i18n="hero.greeting">{t.hero.greeting}</span> <span class='text-blue-400'>Elizon</span>
     </h1>
-    <p class='text-lg md:text-xl mb-6 max-w-md mx-auto md:mx-0 leading-relaxed' data-i18n="hero.description">
-      {t.hero.description}
+    <p class='text-lg md:text-xl mb-6 max-w-md mx-auto md:mx-0 leading-relaxed' data-i18n="hero.description" set:html={t.hero.description}>
     </p>
     <div
       class='flex flex-col sm:flex-row gap-4 justify-center md:justify-start'
@@ -29,8 +28,8 @@ const t = getTranslations(currentLocale);
         {t.projects.title}
       </a>
       <a
-        href='./cvs/Elizon_Rodriguez_cv-es.pdf'
-        download='Elizon Rodriguez CV'
+        href={currentLocale === 'es' ? '/cvs/Elizon_Rodriguez_CV_es.pdf' : '/cvs/Elizon_Rodriguez_CV_En.pdf'}
+        download={currentLocale === 'es' ? 'Elizon_Rodriguez_CV_es.pdf' : 'Elizon_Rodriguez_CV_En.pdf'}
         class='border border-gray-300 py-2 px-6 rounded-full hover:bg-white hover:text-black transition'
         data-i18n-btn="hero.downloadCV"
       >
