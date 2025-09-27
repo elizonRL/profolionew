@@ -16,31 +16,31 @@ const TAGS = {
   TAILWIND: {
     name: 'Tailwind CSS',
     class: 'bg-[#003159] text-white',
-    tagIcon: 'tailwindcss', // Assuming you have a Tailwind icon component
+    tagIcon: 'tailwindcss', 
     icon: SvgTag,
   },
   ASTROICON: {
     name: 'Astro',
     class: 'bg-[#e06b27] text-white',
-    tagIcon: 'astro', // Assuming you have an Astro icon component
-    icon: SvgTag, // Assuming you have an Astro icon component
+    tagIcon: 'astro', 
+    icon: SvgTag,
   },
   Angular: {
     name: 'Angular',
     class: 'bg-red-600 text-white',
-    tagIcon: 'angular', // Assuming you have an Angular icon component
-    icon: SvgTag, // Assuming you have an Angular icon component
+    tagIcon: 'angular', 
+    icon: SvgTag, 
   },
   IONIC: {
     name: 'Ionic',
     class: 'bg-[#3880ff] text-white',
-    tagIcon: 'ionic', // Assuming you have an Ionic icon component
+    tagIcon: 'ionic', 
     icon: SvgTag,
   },
   REACT: {
     name: 'React',
     class: 'bg-[#20232a] text-white',
-    tagIcon: 'react', // Assuming you have a React icon component
+    tagIcon: 'react', 
     icon: SvgTag,
   },
 };
@@ -106,8 +106,8 @@ const { id } = Astro.props;
     <div class='flex flex-col gap-y-16'>
       {
         PROJECTS.map(({ image, title, description, tags, link, github }) => (
-          <article class='flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0'>
-            <div class='w-full md:w-1/2'>
+          <article class='fadeUp flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0'>
+            <div class='w-full md:w-1/2  '>
               <div class='relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50'>
                 <img
                   alt={title}
