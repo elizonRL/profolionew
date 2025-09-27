@@ -23,6 +23,7 @@
   animation: fadeUp both;
   animation-timeline: view(60% 20%);
 }
+
 timeline-item:nth-child(1){
   animation-range: entry 20% cover 40%;
 }
@@ -32,6 +33,7 @@ timeline-item:nth-child(2){
 timeline-item:nth-child(3){
   animation-range: entry 60% cover 80%;
 }
+
 @keyframes fadeUp {
   from {
     opacity: 0;
