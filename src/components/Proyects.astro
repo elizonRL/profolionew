@@ -123,7 +123,7 @@ const PROJECTS = [
         : 'Full-stack web application to shorten long URLs into short, easy-to-share links. Built with React and responsive design, it includes an authentication system, link management, and redirection proxy.',  
     link: '',
     github: 'https://github.com/elizonRL/shorlink-front',
-    tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.NODE, TAGS.MONGODB, TAGS.DOCKER],
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT, TAGS.NODE, TAGS.MONGODB, TAGS.DOCKER],
     image: '/projects/Shortlink.webp',
   }
 ];
@@ -165,7 +165,7 @@ const { id } = Astro.props;
                 {title}
               </h3>
               <div class='flex flex-wrap mt-2'>
-                <ul class='flex flex-row mb-2 gap-x-2'>
+                <ul class="grid grid-cols-2 md:grid-cols-3 gap-2">
                   {tags.map((tag) => (
                     <li>
                       <span
