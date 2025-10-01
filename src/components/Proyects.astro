@@ -43,6 +43,31 @@ const TAGS = {
     tagIcon: 'react', 
     icon: SvgTag,
   },
+  TYPESCRIPT: {
+    name: 'TypeScript',
+    class: 'bg-[#1e3a8a] text-white',
+    tagIcon: 'typescript', 
+    icon: SvgTag,
+  },
+  NODE: {
+    name: 'Node.js',
+    class: 'bg-[#1a1a1a] text-white',
+    tagIcon: 'node', 
+    icon: SvgTag,
+  },
+  MONGODB: {
+    name: 'MongoDB',
+    class: 'bg-[#8b4513] text-white',
+    tagIcon: 'mongodb', 
+    icon: SvgTag,
+  },
+  DOCKER: {
+    name: 'Docker',
+    class: 'bg-[#f7fafc] text-black',
+    tagIcon: 'docker', 
+    icon: SvgTag,
+  },
+
 };
 /*Proyectos que se muestran en la sección de proyectos */
 const PROJECTS = [
@@ -87,6 +112,20 @@ const PROJECTS = [
     image: '/projects/notemarket.webp',
     tags: [TAGS.REACT, TAGS.TAILWIND],
   },
+  {
+    title: 
+      currentLocale === 'es'
+        ? 'Acortador de links - Acorta tus URLs fácilmente'
+        : 'Link Shortener - Shorten your URLs easily',
+    description:
+      currentLocale === 'es'
+        ? 'Aplicación web full-stack para acortar URLs largas en enlaces cortos y fáciles de compartir. Desarrollada con React y diseño responsivo, incluye sistema de autenticación, gestión de enlaces y proxy de redirección.'
+        : 'Full-stack web application to shorten long URLs into short, easy-to-share links. Built with React and responsive design, it includes an authentication system, link management, and redirection proxy.',  
+    link: '',
+    github: 'https://github.com/elizonRL/shorlink-front',
+    tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.NODE, TAGS.MONGODB, TAGS.DOCKER],
+    image: '/projects/Shortlink.webp',
+  }
 ];
 /* * Componente principal que renderiza la sección de proyectos
  * Utiliza los componentes TitleHeader, SectionComponent, DivSection, SvgTag y LinkButton
