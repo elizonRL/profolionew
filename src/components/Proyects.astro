@@ -44,6 +44,7 @@ const { id } = Astro.props;
                   class='object-cover object-top w-full h-45 transition duration-500 sm:h-4/6 md:scale-110 md:group-hover:scale-105'
                   loading='lazy'
                   src={project.image}
+                  transition:name={`project-image-${project.slug}`}
                 />
               </div>
             </div>
@@ -52,11 +53,12 @@ const { id } = Astro.props;
               <h3
                 class='text-2xl font-bold text-gray-800 dark:text-gray-100'
                 data-project-title
+                transition:name={`project-title-${project.slug}`}
               >
                 {title}
               </h3>
               <div class='flex flex-wrap mt-2'>
-                <ul class='flex flex-row mb-2 gap-x-2'>
+                <ul class='flex flex-wrap mb-2 gap-2'>
                   {project.tags?.map((tag) => (
                     <li>
                       <span
@@ -77,7 +79,21 @@ const { id } = Astro.props;
                   data-project-description
                 >
                   {description}
-                  <a href={`/pojects/${project.slug}`} class="text-blue-500 hover:text-blue-700 ml-2" data-i18n-btn="projects.viewMore">{currentLocale === 'es' ? 'ver más...' : 'see more...'}</a>
+                  <div class="mt-4">
+                    <a 
+                      href={currentLocale === 'es' ? `/pojects/${project.slug}` : `/en/pojects/${project.slug}`} 
+                      class="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 font-medium transition-all duration-300 group relative"
+                      data-i18n-btn="projects.viewMore"
+                    >
+                      <span class="relative">
+                        {currentLocale === 'es' ? 'Ver más' : 'See more'}
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                      <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
                 <footer class='flex items-end justify-start mt-4 gap-x-4'>
                   {project.github && (
