@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionComponent from '../../components/SectionComponent.astro';
+import DivSection from '../../components/DivSection.astro';
+import SvgTag from '../../components/icons/SvgTag.astro';
+import LinkButton from '../../components/LinkButton.astro';
+import { Locale, PROJECTS } from "../../Data/projects.js";
+
+export const getStaticPaths = (() => {
+    const paths: Array<{ params: { slug: string }; props: { project: any; currentLocale: string } }> = []
+    
+    PROJECTS.forEach(project => {
+        if (project.slug) {
+            paths.push({ 
+                params: { slug: project.slug },
+                props: {
+                    project: project,
+                    currentLocale: 'es'
+                }
+            })
+        }
+    });
+    
+    return paths;
+})
+
+const { project, currentLocale } = Astro.props;
+
+const title = currentLocale === 'es' ? project.title_es : project.title_en;
+const description = currentLocale === 'es' ? project.descrition_es_long : project.descrition_en_long;
+
+
+---
+
+<Layout title={title} description={description}>
+    <SectionComponent>
+        <DivSection>
+            <article class="flex flex-col justify-center min-h-screen max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="relative flex flex-col transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl border border-gray-800 hover:border-gray-700 hover:bg-gray-800/50">
+                        <img 
+                            src={project.image} 
+                            alt={title}
+                            class="object-cover object-top w-full h-auto transition duration-500"
+                            loading="lazy"
+                        />
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h1 class="text-4xl font-bold text-gray-100">{title}</h1>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            {project.tags?.map((tag: any) => (
+                                <span class={`flex gap-x-2 justify-center items-center rounded-full text-xs ${tag.class} py-1 px-2`}>
+                                    <SvgTag nameTag={tag.tagIcon} class="size-4" />
+                                    {tag.name}
+                                </span>
+                            ))}
+                        </div>
+                        
+                        <div class="prose prose-lg prose-invert max-w-none text-gray-300">
+                            <div set:html={`<p class="mb-4">${description.replace(/\n\n/g, '</p><p class="mb-4">').replace(/\n/g, '<br>')}</p>`} />
+                        </div>
+                        
+                        <footer class="flex flex-wrap gap-4">
+                            {project.github && (
+                                <LinkButton href={project.github}>
+                                    <SvgTag nameTag="github" class="size-6" />
+                                    <span>Ver Código</span>
+                                </LinkButton>
+                            )}
+                            
+                            {project.link && (
+                                <LinkButton href={project.link}>
+                                    <SvgTag nameTag="link" class="size-6" />
+                                    <span>Ver Proyecto</span>
+                                </LinkButton>
+                            )}
+                        </footer>
+                    </div>
+                </div>
+            </article>
+        </DivSection>
+    </SectionComponent>
+</Layout>

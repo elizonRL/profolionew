@@ -7,6 +7,7 @@ import DivSection from './DivSection.astro';
 import SvgTag from './icons/SvgTag.astro';
 import LinkButton from './LinkButton.astro';
 import { getTranslations } from '../i18n';
+import { PROJECTS } from '../Data/projects';
 
 const currentLocale = Astro.currentLocale || 'es';
 const t = getTranslations(currentLocale);
@@ -70,8 +71,9 @@ const TAGS = {
 
 };
 /*Proyectos que se muestran en la sección de proyectos */
-const PROJECTS = [
+/* const PROJECTS = PROJECTS */ /* [
   {
+    slug: 'english-blog',
     title:
       currentLocale === 'es'
         ? 'ENGLISH BLOG - UN BLOG PARA APRENDER INGLÉS'
@@ -86,6 +88,7 @@ const PROJECTS = [
     tags: [TAGS.ASTROICON, TAGS.TAILWIND],
   },
   {
+    slug: 'egresados-uasd',
     title:
       currentLocale === 'es'
         ? 'Egresados UASD - App móvil para egresados de la Universidad'
@@ -99,6 +102,7 @@ const PROJECTS = [
     tags: [TAGS.Angular, TAGS.IONIC],
   },
   {
+    slug: 'notemarket',
     title:
       currentLocale === 'es'
         ? 'NoteMarket - web para controlar tus gastos en el supermercado'
@@ -113,6 +117,7 @@ const PROJECTS = [
     tags: [TAGS.REACT, TAGS.TAILWIND],
   },
   {
+    slug: 'link-shortener',
     title: 
       currentLocale === 'es'
         ? 'Acortador de links - Acorta tus URLs fácilmente'
@@ -126,7 +131,7 @@ const PROJECTS = [
     tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.NODE, TAGS.MONGODB, TAGS.DOCKER],
     image: '/projects/Shortlink.webp',
   }
-];
+]; */
 /* * Componente principal que renderiza la sección de proyectos
  * Utiliza los componentes TitleHeader, SectionComponent, DivSection, SvgTag y LinkButton
  * Muestra una lista de proyectos con sus detalles, incluyendo imagen, título, descripción, etiquetas y enlaces a GitHub y vista previa.
@@ -144,7 +149,11 @@ const { id } = Astro.props;
 
     <div class='flex flex-col gap-y-16'>
       {
-        PROJECTS.map(({ image, title, description, tags, link, github }) => (
+        PROJECTS.map((project) => {
+          const title = currentLocale === 'es' ? project.title_es : project.title_en;
+          const description = currentLocale === 'es' ? project.descrition_es : project.descrition_en;
+          
+          return (
           <article class='fadeUp flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0'>
             <div class='w-full md:w-1/2  '>
               <div class='relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50'>
@@ -152,7 +161,7 @@ const { id } = Astro.props;
                   alt={title}
                   class='object-cover object-top w-full h-45 transition duration-500 sm:h-4/6 md:scale-110 md:group-hover:scale-105'
                   loading='lazy'
-                  src={image}
+                  src={project.image}
                 />
               </div>
             </div>
@@ -166,7 +175,7 @@ const { id } = Astro.props;
               </h3>
               <div class='flex flex-wrap mt-2'>
                 <ul class='flex flex-row mb-2 gap-x-2'>
-                  {tags.map((tag) => (
+                  {project.tags?.map((tag) => (
                     <li>
                       <span
                         class={`flex gap-x-2 justify-center items-center rounded-full text-xs ${tag.class} py-1 px-2 `}
@@ -186,10 +195,11 @@ const { id } = Astro.props;
                   data-project-description
                 >
                   {description}
+                  <a href={`/pojects/${project.slug}`} class="text-blue-500 hover:text-blue-700 ml-2" data-i18n-btn="projects.viewMore">{currentLocale === 'es' ? 'ver más...' : 'see more...'}</a>
                 </div>
                 <footer class='flex items-end justify-start mt-4 gap-x-4'>
-                  {github && (
-                    <LinkButton href={github}>
+                  {project.github && (
+                    <LinkButton href={project.github}>
                       <SvgTag
                         nameTag='github'
                         class='size-6'
@@ -200,8 +210,8 @@ const { id } = Astro.props;
                     </LinkButton>
                   )}
 
-                  {link && (
-                    <LinkButton href={link}>
+                  {project.link && (
+                    <LinkButton href={project.link}>
                       <SvgTag
                         nameTag='link'
                         class='size-6'
@@ -215,7 +225,8 @@ const { id } = Astro.props;
               </div>
             </div>
           </article>
-        ))
+          );
+        })
       }
     </div>
   </DivSection>
