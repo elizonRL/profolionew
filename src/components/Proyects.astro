@@ -58,8 +58,8 @@ const { id } = Astro.props;
                 {title}
               </h3>
               <div class='flex flex-wrap mt-2'>
-                <ul class='flex flex-wrap mb-2 gap-2'>
-                  {project.tags?.map((tag) => (
+                <ul class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                  {tags.map((tag) => (
                     <li>
                       <span
                         class={`flex gap-x-2 justify-center items-center rounded-full text-xs ${tag.class} py-1 px-2 `}
