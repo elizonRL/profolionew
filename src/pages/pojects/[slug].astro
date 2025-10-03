@@ -4,27 +4,18 @@ import SectionComponent from '../../components/SectionComponent.astro';
 import DivSection from '../../components/DivSection.astro';
 import SvgTag from '../../components/icons/SvgTag.astro';
 import LinkButton from '../../components/LinkButton.astro';
-import { Locale, PROJECTS } from "../../Data/projects.js";
+import { PROJECTS } from "../../Data/projects.js";
 
 export const getStaticPaths = (() => {
     const paths: Array<{ params: { slug: string }; props: { project: any; currentLocale: string } }> = []
     
     PROJECTS.forEach(project => {
         if (project.slug) {
-            // Español
             paths.push({ 
                 params: { slug: project.slug },
                 props: {
                     project: project,
                     currentLocale: 'es'
-                }
-            })
-            // Inglés
-            paths.push({ 
-                params: { slug: project.slug },
-                props: {
-                    project: project,
-                    currentLocale: 'en'
                 }
             })
         }

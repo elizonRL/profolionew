@@ -11,6 +11,7 @@ import { PROJECTS } from '../Data/projects';
 
 const currentLocale = Astro.currentLocale || 'es';
 const t = getTranslations(currentLocale);
+const { id } = Astro.props;
 
 /*Constantes de proyectos y etiquetas*/
 /*Proyectos que se muestran en la sección de proyectos */
@@ -18,7 +19,6 @@ const t = getTranslations(currentLocale);
  * Utiliza los componentes TitleHeader, SectionComponent, DivSection, SvgTag y LinkButton
  * Muestra una lista de proyectos con sus detalles, incluyendo imagen, título, descripción, etiquetas y enlaces a GitHub y vista previa.
  */
-const { id } = Astro.props;
 ---
 
 <SectionComponent id={id}>
