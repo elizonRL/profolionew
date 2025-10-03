@@ -4,11 +4,10 @@ const toggleUrl = currentLocale === 'es' ? '/en' : '/';
 ---
 
 <div class="language-toggle">
-    <a 
-        href={toggleUrl}
-        class="flex items-center gap-1.5 px-2 py-1 rounded-full hover:bg-white/5 transition-all duration-300 cursor-pointer group"
+    <button 
+        class="language-toggle-btn flex items-center gap-1.5 px-2 py-1 rounded-full hover:bg-white/5 transition-all duration-300 cursor-pointer group"
         title={currentLocale === 'es' ? 'Switch to English' : 'Cambiar a Español'}
-        data-astro-history="replace"
+        data-current-locale={currentLocale}
     >
         <svg class="size-4 opacity-80 group-hover:opacity-100 transition-opacity duration-300" fill="currentColor">
             <use href={`/assets/sprite.svg#flag-${currentLocale === 'es' ? 'do' : 'us'}`} />
@@ -16,8 +15,40 @@ const toggleUrl = currentLocale === 'es' ? '/en' : '/';
         <span class="text-xs font-light opacity-70 group-hover:opacity-100 transition-opacity duration-300">
             {currentLocale === 'es' ? 'ES' : 'EN'}
         </span>
-    </a>
+    </button>
 </div>
+
+<script>
+    function handleLanguageToggle() {
+        const languageBtns = document.querySelectorAll('.language-toggle-btn');
+        
+        languageBtns.forEach(btn => {
+            // Remover listeners existentes
+            btn.removeEventListener('click', handleClick);
+            btn.addEventListener('click', handleClick);
+        });
+        
+        function handleClick(e) {
+            e.preventDefault();
+            const currentLocale = e.target.closest('.language-toggle-btn').getAttribute('data-current-locale');
+            
+            const currentPath = window.location.pathname;
+            let newPath;
+            
+            if (currentLocale === 'es') {
+                newPath = '/en' + (currentPath === '/' ? '' : currentPath);
+            } else {
+                newPath = currentPath.replace('/en', '') || '/';
+            }
+            
+            window.location.href = newPath;
+        }
+    }
+    
+    // Ejecutar al cargar y en cada navegación
+    document.addEventListener('DOMContentLoaded', handleLanguageToggle);
+    document.addEventListener('astro:page-load', handleLanguageToggle);
+</script>
 
 <style>
     .language-toggle {
