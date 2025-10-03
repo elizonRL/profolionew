@@ -4,90 +4,175 @@ import SectionComponent from '../../components/SectionComponent.astro';
 import DivSection from '../../components/DivSection.astro';
 import SvgTag from '../../components/icons/SvgTag.astro';
 import LinkButton from '../../components/LinkButton.astro';
-import { PROJECTS } from "../../Data/projects.js";
+import { PROJECTS } from '../../Data/projects.js';
 
-export const getStaticPaths = (() => {
-    const paths: Array<{ params: { slug: string }; props: { project: any; currentLocale: string } }> = []
-    
-    PROJECTS.forEach(project => {
+export const getStaticPaths = () => {
+    const paths: Array<{
+        params: { slug: string };
+        props: { project: any; currentLocale: string };
+    }> = [];
+
+    PROJECTS.forEach((project) => {
         if (project.slug) {
-            paths.push({ 
+            paths.push({
                 params: { slug: project.slug },
                 props: {
                     project: project,
-                    currentLocale: 'es'
-                }
-            })
+                    currentLocale: 'es',
+                },
+            });
         }
     });
-    
+
     return paths;
-})
+};
 
 const { project, currentLocale } = Astro.props;
 
 const title = currentLocale === 'es' ? project.title_es : project.title_en;
-const description = currentLocale === 'es' ? project.descrition_es_long : project.descrition_en_long;
-
-
+const description =
+    currentLocale === 'es'
+        ? project.descrition_es_long
+        : project.descrition_en_long;
 ---
 
-<Layout title={title} description={description}>
+<Layout
+    title={title}
+    description={description}
+>
     <SectionComponent>
         <DivSection>
-            <article class="max-w-4xl mx-auto py-8">
-                <button 
-                    onclick="history.back()"
-                    class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8 group"
+            <article class='max-w-4xl mx-auto py-8'>
+                <button
+                    onclick='history.back()'
+                    class='flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8 group'
                 >
-                    <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    <svg
+                        class='w-5 h-5 transition-transform group-hover:-translate-x-1'
+                        fill='currentColor'
+                        viewBox='0 0 20 20'
+                    >
+                        <path
+                            fill-rule='evenodd'
+                            d='M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z'
+                            clip-rule='evenodd'
+                        ></path>
                     </svg>
                     <span>{currentLocale === 'es' ? 'Volver' : 'Back'}</span>
                 </button>
-                
-                <header class="mb-8">
-                    <h1 class="text-5xl font-bold text-gray-100 mb-4 leading-tight" transition:name={`project-title-${project.slug}`}>{title}</h1>
-                    
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        {project.tags?.map((tag: any) => (
-                            <span class={`flex gap-x-2 justify-center items-center rounded-full text-sm ${tag.class} py-2 px-3`}>
-                                <SvgTag nameTag={tag.tagIcon} class="size-4" />
-                                {tag.name}
-                            </span>
-                        ))}
+
+                <header class='mb-8'>
+                    <h1
+                        class='text-5xl font-bold text-gray-100 mb-4 leading-tight'
+                        transition:name={`project-title-${project.slug}`}
+                    >
+                        {title}
+                    </h1>
+
+                    <div class='flex flex-wrap gap-2 mb-6'>
+                        {
+                            project.tags?.map((tag: any) => (
+                                <span
+                                    class={`flex gap-x-2 justify-center items-center rounded-full text-sm ${tag.class} py-2 px-3`}
+                                >
+                                    <SvgTag
+                                        nameTag={tag.tagIcon}
+                                        class='size-4'
+                                    />
+                                    {tag.name}
+                                </span>
+                            ))
+                        }
                     </div>
                 </header>
-                
-                <div class="mb-8">
-                    <img 
-                        src={project.image} 
+
+                <div class='mb-8'>
+                    <img
+                        src={project.image}
                         alt={title}
-                        loading="lazy"
-                        class="w-full h-auto rounded-xl shadow-2xl border border-gray-800"
-                        loading="lazy"
+                        loading='lazy'
+                        class='w-full h-auto rounded-xl shadow-2xl border border-gray-800'
+                        loading='lazy'
                         transition:name={`project-image-${project.slug}`}
                     />
-                    
-                    <div class="flex flex-wrap gap-4 mt-6 justify-center">
-                        {project.github && (
-                            <LinkButton href={project.github}>
-                                <SvgTag nameTag="github" class="size-6" />
-                                <span>{currentLocale === 'es' ? 'Ver Código' : 'View Code'}</span>
-                            </LinkButton>
-                        )}
-                        
-                        {project.link && (
-                            <LinkButton href={project.link}>
-                                <SvgTag nameTag="link" class="size-6" />
-                                <span>{currentLocale === 'es' ? 'Ver Proyecto' : 'View Project'}</span>
-                            </LinkButton>
-                        )}
+
+                    <div class='flex flex-wrap gap-4 mt-6 justify-center'>
+                        {
+                            project.github && (
+                                <LinkButton href={project.github}>
+                                    <SvgTag
+                                        nameTag='github'
+                                        class='size-6'
+                                    />
+                                    <span>
+                                        {currentLocale === 'es'
+                                            ? 'Ver Código'
+                                            : 'View Code'}
+                                    </span>
+                                </LinkButton>
+                            )
+                        }
+
+                        {
+                            project.link && (
+                                <LinkButton href={project.link}>
+                                    <SvgTag
+                                        nameTag='link'
+                                        class='size-6'
+                                    />
+                                    <span>
+                                        {currentLocale === 'es'
+                                            ? 'Ver Proyecto'
+                                            : 'View Project'}
+                                    </span>
+                                </LinkButton>
+                            )
+                        }
                     </div>
                 </div>
-                
-                <div class="prose prose-xl prose-invert max-w-none text-gray-300 leading-relaxed">
-                    <div set:html={`<div class="space-y-6">${description.replace(/\n\n/g, '</div><div class="space-y-6">').replace(/\n/g, '<br>')}</div>`} />
+
+                <div class='prose prose-xl prose-invert prose-slate max-w-none'>
+                    <div
+                        set:html={`<p>${description
+                            .replace(
+                                /🛠️ ([^\n]+)/g,
+                                '</p><h2 class="text-2xl font-bold mt-8 mb-4">🛠️ $1</h2><p>',
+                            )
+                            .replace(
+                                /🎯 ([^\n]+)/g,
+                                '</p><h2 class="text-2xl font-bold mt-8 mb-4">🎯 $1</h2><p>',
+                            )
+                            .replace(
+                                /📊 ([^\n]+)/g,
+                                '</p><h2 class="text-2xl font-bold mt-8 mb-4">📊 $1</h2><p>',
+                            )
+                            .replace(
+                                /💡 ([^\n]+)/g,
+                                '</p><h2 class="text-2xl font-bold mt-8 mb-4">💡 $1</h2><p>',
+                            )
+                            .replace(
+                                /🌟 ([^\n]+)/g,
+                                '</p><h2 class="text-2xl font-bold mt-8 mb-4">🌟 $1</h2><p>',
+                            )
+                            .replace(
+                                /📱 ([^\n]+)/g,
+                                '</p><h2 class="text-2xl font-bold mt-8 mb-4">📱 $1</h2><p>',
+                            )
+                            .replace(
+                                /⚙️ ([^\n]+)/g,
+                                '</p><h2 class="text-2xl font-bold mt-8 mb-4">⚙️ $1</h2><p>',
+                            )
+                            .replace(
+                                /🐳 ([^\n]+)/g,
+                                '</p><h2 class="text-2xl font-bold mt-8 mb-4">🐳 $1</h2><p>',
+                            )
+                            .replace(
+                                /🔒 ([^\n]+)/g,
+                                '</p><h1 class="text-2xl font-bold mt-8 mb-4">🔒 $1</h1><p>',
+                            )
+                            .replace(/\n\n/g, '</p><p>')
+                            .replace(/\n/g, '<br>')}</p>`}
+                    />
                 </div>
             </article>
         </DivSection>
