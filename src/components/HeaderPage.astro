@@ -1,0 +1,229 @@
+---
+import { getTranslations } from '../i18n';
+import LanguageToggle from './LanguageToggle.astro';
+
+const currentLocale = Astro.currentLocale || 'es';
+const t = getTranslations(currentLocale);
+
+const navItems = [
+    {
+        title: t.nav.home,
+        label: 'home',
+        url: currentLocale === 'es' ? '/' : '/en',
+    },
+    {
+        title: t.nav.projects,
+        label: 'projects',
+        url: '#projects',
+    },
+    {
+        title: t.nav.study,
+        label: 'study',
+        url: '#study',
+    },
+    {
+        title: t.nav.skills,
+        label: 'skills',
+        url: '#skills',
+    },
+    {
+        title: t.nav.about,
+        label: 'about',
+        url: '#about',
+    },
+];
+---
+
+<header class='fixed top-0 z-[100] w-full'>
+    <!-- Mobile Header -->
+    <div class='md:hidden flex justify-between items-center px-4 py-2 bg-gray-900/20 backdrop-blur-sm'>
+        <button id='hamburger-btn' class='p-1.5 rounded-lg bg-gray-800/50 hover:bg-gray-700/70 transition-all'>
+            <svg class='w-5 h-5 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 6h16M4 12h16M4 18h16'></path>
+            </svg>
+        </button>
+        <div class='bg-gray-800/50 rounded-lg px-2 py-0.5 text-white'>
+            <LanguageToggle />
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <nav id='mobile-menu' class='md:hidden fixed top-0 left-0 w-full h-full bg-gray-900/95 backdrop-blur-md transform -translate-x-full transition-transform duration-300 z-50'>
+        <div class='flex flex-col items-center justify-center h-full space-y-8'>
+            <button id='close-btn' class='absolute top-4 right-4 p-2 text-white'>
+                <svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12'></path>
+                </svg>
+            </button>
+            {
+                navItems.map((link) => (
+                    <a
+                        class='text-white text-xl font-medium hover:text-blue-400 transition-colors mobile-nav-item'
+                        aria-label={link.label}
+                        href={link.url}
+                        data-nav-item={link.label}
+                    >
+                        {link.title}
+                    </a>
+                ))
+            }
+        </div>
+    </nav>
+    
+    <!-- Desktop Header -->
+    <div class='hidden md:flex items-center justify-center w-full mx-auto mt-2 px-4'>
+       <!--  <nav class='flex px-3 text-sm font-medium rounded-xl text-gray-600 dark:text-gray-200 justify-center items-center gap-2 min-w-[400px]'>
+            {
+                navItems.map((link) => (
+                    <a
+                        class='relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500 min-w-[70px] text-center'
+                        aria-label={link.label}
+                        href={link.url}
+                        data-nav-item={link.label}
+                    >
+                        {link.title}
+                    </a>
+                ))
+            }
+            <div class='ml-2 pl-2 border-l border-gray-600/30'>
+                <LanguageToggle />
+            </div>
+        </nav> -->
+    </div>
+</header>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('header nav a');
+
+        const callback = (entries: any[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    navItems.forEach((item) => {
+                        if (
+                            item.getAttribute('aria-label') === entry.target.id
+                        ) {
+                            item.classList.add('text-blue-500');
+                        } else {
+                            item.classList.remove('text-blue-500');
+                        }
+                    });
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(callback, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3,
+        });
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Cleanup function
+        document.onvisibilitychange = () => {
+            if (document.visibilityState === 'hidden') {
+                observer.disconnect();
+            } else {
+                sections.forEach((section) => {
+                    observer.observe(section);
+                });
+            }
+        };
+        
+        // Mobile menu functionality
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+        
+        function openMenu() {
+            mobileMenu?.classList.remove('-translate-x-full');
+        }
+        
+        function closeMenu() {
+            mobileMenu?.classList.add('-translate-x-full');
+        }
+        
+        hamburgerBtn?.addEventListener('click', openMenu);
+        closeBtn?.addEventListener('click', closeMenu);
+        
+        // Smooth scroll navigation
+        function handleNavClick(e: Event) {
+            const target = e.target as HTMLAnchorElement;
+            const href = target.getAttribute('href');
+            
+            // Skip language toggle links
+            if (target.closest('.language-toggle')) {
+                return;
+            }
+            
+            // Only prevent default for hash links
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const section = document.querySelector(href);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            // Let page URLs work normally (don't prevent default)
+        }
+        
+        // Add click handlers to nav items (excluding language toggle)
+        navItems.forEach(item => {
+            if (!item.closest('.language-toggle')) {
+                item.addEventListener('click', handleNavClick);
+            }
+        });
+        
+        // Close menu when clicking on mobile nav items
+        mobileNavItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                const href = item.getAttribute('href');
+                if (!item.closest('.language-toggle')) {
+                    handleNavClick(e);
+                }
+                // Close menu for all clicks except page navigation
+                if (href && href.startsWith('#')) {
+                    closeMenu();
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    nav {
+        animation: nav-shadown 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
+    }
+
+    nav {
+        background-color: rgba(31, 41, 55, 0.3);
+    }
+
+    @keyframes nav-shadown {
+        0% {
+            background-color: rgba(255, 255, 255, 0); /* bg-white/0 */
+        }
+        to {
+            box-shadow:
+                0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            border: .4px solid rgba(255, 255, 255, 0.1); /* ring-1 ring-white/10 */
+            backdrop-filter: blur(10px); /* backdrop-blur */
+        }
+    }
+    
+    /* Desktop nav animation */
+    .hidden.md\:flex nav {
+        animation: nav-shadown 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
+        background-color: rgba(31, 41, 55, 0.3);
+    }
+</style>

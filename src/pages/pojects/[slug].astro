@@ -1,10 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
 import SectionComponent from '@/SectionComponent.astro';
 import DivSection from '@/DivSection.astro';
 import SvgTag from '@/icons/SvgTag.astro';
 import LinkButton from '@/LinkButton.astro';
 import { PROJECTS } from "../../Data/projects.js";
+import LayoutPage from '../../layouts/LayoutPage.astro';
 
 export const getStaticPaths = () => {
     const paths: Array<{
@@ -36,7 +36,7 @@ const description =
         : project.descrition_en_long;
 ---
 
-<Layout
+<LayoutPage
     title={title}
     description={description}
 >
@@ -92,7 +92,6 @@ const description =
                         alt={title}
                         loading='lazy'
                         class='w-full h-auto rounded-xl shadow-2xl border border-gray-800'
-                        loading='lazy'
                         transition:name={`project-image-${project.slug}`}
                     />
 
@@ -177,4 +176,4 @@ const description =
             </article>
         </DivSection>
     </SectionComponent>
-</Layout>
+</LayoutPage>
