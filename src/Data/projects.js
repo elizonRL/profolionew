@@ -1,6 +1,6 @@
 
 export const Locale = ['es', 'en'];
-import SvgTag from '../components/icons/SvgTag.astro';
+import SvgTag from '@/icons/SvgTag.astro';
 
 const TAGS = {
   TAILWIND: {
