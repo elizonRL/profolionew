@@ -72,23 +72,17 @@ const navItems = [
     
     <!-- Desktop Header -->
     <div class='hidden md:flex items-center justify-center w-full mx-auto mt-2 px-4'>
-       <!--  <nav class='flex px-3 text-sm font-medium rounded-xl text-gray-600 dark:text-gray-200 justify-center items-center gap-2 min-w-[400px]'>
-            {
-                navItems.map((link) => (
-                    <a
-                        class='relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500 min-w-[70px] text-center'
-                        aria-label={link.label}
-                        href={link.url}
-                        data-nav-item={link.label}
-                    >
-                        {link.title}
-                    </a>
-                ))
-            }
+        <nav class='flex px-3 text-sm font-medium rounded-xl text-gray-600 dark:text-gray-200 justify-center items-center gap-2 min-w-[400px]'>
+            {/* Espaciadores invisibles para mantener el tamaño */}
+            <div class='relative block px-2 py-2 min-w-[70px] opacity-0 pointer-events-none'>Home</div>
+            <div class='relative block px-2 py-2 min-w-[70px] opacity-0 pointer-events-none'>Projects</div>
+            <div class='relative block px-2 py-2 min-w-[70px] opacity-0 pointer-events-none'>Study</div>
+            <div class='relative block px-2 py-2 min-w-[70px] opacity-0 pointer-events-none'>Skills</div>
+            <div class='relative block px-2 py-2 min-w-[70px] opacity-0 pointer-events-none'>About</div>
             <div class='ml-2 pl-2 border-l border-gray-600/30'>
                 <LanguageToggle />
             </div>
-        </nav> -->
+        </nav>
     </div>
 </header>
 
