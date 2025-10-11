@@ -36,7 +36,7 @@ const techStack = [
     <TitleHeader titleH2={t.skills.title} icon="🛠️" i18nKey="skills.title" />
     <article class="w-full">
       <aside>
-        <GithubStats client:visible />
+        <GithubStats client:visible  currentLocale={currentLocale}/>
         <p class="text-gray-600 dark:text-gray-400 mt-4" data-i18n="skills.description">
           {t.skills.description}
         </p>
