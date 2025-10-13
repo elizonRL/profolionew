@@ -1,11 +1,31 @@
 import { useEffect, useState } from "react";
 import Skeleton from "./Skeleton.jsx";
-const GithubStats = () => {
-  // Ensure the USER_NAME environment variable is set
-  const username = import.meta.env.PUBLIC_GITHUB_USER; // Default to 'elizonRL' if not set
+
+const GithubStats = ({ currentLocale = 'es' }) => {
+  const username = import.meta.env.PUBLIC_GITHUB_USER;
   const githubUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  const translations = {
+    es: {
+      repositories: "Repositorios de",
+      moreProjects: "Más proyectos",
+      noDescription: "Sin descripción disponible",
+      githubStats: "Estadísticas de GitHub",
+      topLanguages: "Lenguajes más usados"
+    },
+    en: {
+      repositories: "Repositories of",
+      moreProjects: "More projects",
+      noDescription: "No description available",
+      githubStats: "GitHub Stats",
+      topLanguages: "Most used languages"
+    }
+  };
+  
+  const t = translations[currentLocale] || translations.es;
+  
   useEffect(() => {
     if (username) {
       fetch(githubUrl)
@@ -15,7 +35,7 @@ const GithubStats = () => {
             data.map((repo) => ({
               id: repo.id,
               name: repo.name,
-              description: repo.description || "No description available",
+              description: repo.description || t.noDescription,
               html_url: repo.html_url,
               stars: repo.stargazers_count,
               forks_count: repo.forks_count,
@@ -27,6 +47,7 @@ const GithubStats = () => {
       console.error("GitHub username is not defined.");
     }
   }, []);
+  
   return (
     <>
       <div className="grid md:grid-cols-1 md:grid-rows-3 gap-8 p-4 justify-center items-start">
@@ -35,13 +56,12 @@ const GithubStats = () => {
             <svg width={26} height={26} className="inline mr-2">
               <use href="/assets/sprite.svg#github" />
             </svg>
-            Repositorios de {username}
+            {t.repositories} {username}
           </h3>
           <span className="text-gray-500 font-semibold text-xl pt-0 text-center block">
-            Más proyectos
+            {t.moreProjects}
           </span>
           {loading ? (
-
             <Skeleton />
           ) : (
             <ul className="list-none p-3 text-sm">
@@ -65,12 +85,11 @@ const GithubStats = () => {
                 .slice(0, 6)}
             </ul>
           )}
-
         </div>
         <div className="md:col-span-2 md:row-span-2 md:col-start-3">
           <img
             src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=radical`}
-            alt="GitHub Stats"
+            alt={t.githubStats}
             loading="lazy"
             className="w-full h-full object-contain shadow-lg aspect-ratio"
           />
@@ -78,7 +97,7 @@ const GithubStats = () => {
         <div className="md:col-span-2 md:row-span-2 md:col-start-3 md:row-start-4">
           <img
             src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=radical`}
-            alt="Lenguajes más usados"
+            alt={t.topLanguages}
             loading="lazy"
             className="w-full h-full object-contain shadow-lg aspect-ratio"
           />
