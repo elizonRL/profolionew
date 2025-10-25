@@ -1,7 +1,7 @@
 ---
+import HeaderPage from '@/HeaderPage.astro';
 import '../styles/global.css';
 import '../styles/transitions.css';
-import Header from '@/Header.astro';
 import { ClientRouter } from 'astro:transitions';
 
 const { title, description } = Astro.props;
@@ -16,7 +16,6 @@ const currentLocale = Astro.currentLocale || 'es';
 			name='viewport'
 			content='width=device-width'
 		/>
-		<meta name="google-site-verification" content="PnxyMy9T36Cj8BrAhoDNcbXnKbtb2s7xwG_5mBDgf3w" />
 		<link
 			rel='icon'
 			type='image/svg+xml'
@@ -34,7 +33,7 @@ const currentLocale = Astro.currentLocale || 'es';
 		<script src="/src/scripts/i18n-init.ts"></script>
 	</head>
 	<body >
-		<Header/>
+		<HeaderPage/>
 			<slot />
 	</body>
 </html>
