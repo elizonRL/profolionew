@@ -6,7 +6,7 @@ const GithubStats = ({ currentLocale = 'es' }) => {
   const githubUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   const translations = {
     es: {
       repositories: "Repositorios de",
@@ -23,9 +23,9 @@ const GithubStats = ({ currentLocale = 'es' }) => {
       topLanguages: "Most used languages"
     }
   };
-  
+
   const t = translations[currentLocale] || translations.es;
-  
+
   useEffect(() => {
     if (username) {
       fetch(githubUrl)
@@ -47,7 +47,7 @@ const GithubStats = ({ currentLocale = 'es' }) => {
       console.error("GitHub username is not defined.");
     }
   }, []);
-  
+
   return (
     <>
       <div className="grid md:grid-cols-1 md:grid-rows-3 gap-8 p-4 justify-center items-start">
@@ -88,18 +88,18 @@ const GithubStats = ({ currentLocale = 'es' }) => {
         </div>
         <div className="md:col-span-2 md:row-span-2 md:col-start-3">
           <img
-            src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=radical`}
+            src={`https://github-readme-stats-fast.vercel.app/api?username=${username}&show_icons=true&theme=radical`}
             alt={t.githubStats}
             loading="lazy"
-            className="w-full h-full object-contain shadow-lg aspect-ratio"
+            className="w-full h-full object-contain shadow-lg rounded-xl"
           />
         </div>
         <div className="md:col-span-2 md:row-span-2 md:col-start-3 md:row-start-4">
           <img
-            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=radical`}
+            src={`https://github-readme-stats-fast.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=radical`}
             alt={t.topLanguages}
             loading="lazy"
-            className="w-full h-full object-contain shadow-lg aspect-ratio"
+            className="w-full h-full object-contain shadow-lg rounded-xl"
           />
         </div>
       </div>
