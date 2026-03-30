@@ -1,8 +1,8 @@
 ---
-import { getTranslations } from '../i18n';
+import { getTranslations } from '../i18n'
 
-const currentLocale = Astro.currentLocale || 'es';
-const t = getTranslations(currentLocale);
+const currentLocale = Astro.currentLocale || 'es'
+const t = getTranslations(currentLocale)
 ---
 
 <section
@@ -33,11 +33,10 @@ const t = getTranslations(currentLocale);
       </a>
       <a
         href={currentLocale === 'es'
-          ? '/cvs/Elizon_Rodriguez_CV_es.pdf'
-          : '/cvs/Elizon_Rodriguez_CV_En.pdf'}
-        download={currentLocale === 'es'
-          ? 'Elizon_Rodriguez_CV_es.pdf'
-          : 'Elizon_Rodriguez_CV_En.pdf'}
+          ? 'https://cv.elizonrodriguez.com/'
+          : 'https://cv.elizonrodriguez.com/en'}
+        target='_blank'
+        rel='noopener noreferrer'
         class='border border-gray-300 py-2 px-6 rounded-full hover:bg-white hover:text-black transition'
         data-i18n-btn='hero.downloadCV'
       >
