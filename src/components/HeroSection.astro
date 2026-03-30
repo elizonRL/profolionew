@@ -1,5 +1,6 @@
 ---
 import { getTranslations } from '../i18n'
+import LinkButton from './LinkButton.astro'
 
 const currentLocale = Astro.currentLocale || 'es'
 const t = getTranslations(currentLocale)
@@ -24,24 +25,24 @@ const t = getTranslations(currentLocale)
     <div
       class='flex flex-col sm:flex-row gap-4 justify-center md:justify-start'
     >
-      <a
+      <LinkButton
         href={currentLocale === 'es' ? '#projects' : '/en#projects'}
-        class='bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition'
+        style='text-white bg-blue-600 border-blue-600 hover:text-white hover:bg-blue-700 hover:border-blue-700 dark:text-white dark:bg-blue-600 dark:border-blue-600'
         data-i18n-btn='projects.title'
       >
         {t.projects.title}
-      </a>
-      <a
+      </LinkButton>
+      <LinkButton
         href={currentLocale === 'es'
           ? 'https://cv.elizonrodriguez.com/'
           : 'https://cv.elizonrodriguez.com/en'}
         target='_blank'
         rel='noopener noreferrer'
-        class='border border-gray-300 py-2 px-6 rounded-full hover:bg-white hover:text-black transition'
+        style='border-gray-300 hover:bg-white hover:text-black hover:border-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:text-white dark:hover:border-gray-500'
         data-i18n-btn='hero.downloadCV'
       >
         {t.hero.downloadCV}
-      </a>
+      </LinkButton>
     </div>
   </article>
 
