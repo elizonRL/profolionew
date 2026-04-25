@@ -17,6 +17,8 @@
   },
   "projects": {
     "title": "Proyectos",
+    "subtitle": "Mi Trabajo",
+    "description": "Una selección de proyectos que reflejan mi experiencia en desarrollo web, desde interfaces modernas hasta aplicaciones móviles.",
     "viewProject": "Preview",
     "viewCode": "Code",
     "englishBlog": {
@@ -30,7 +32,8 @@
   },
   "study": {
     "title": "Mis Estudios",
-    "description": "Aquí están mis estudios y formación académica:",
+    "subtitle": "Formación Académica",
+    "description": "Mi trayectoria educativa y los cursos especializados que han forjado mis conocimientos técnicos y profesionales.",
     "degree": {
       "title": "Licenciatura en Informática",
       "institution": "Universidad Autónoma de Santo Domingo",
@@ -66,11 +69,14 @@
   },
   "skills": {
     "title": "Habilidades & GitHub Stats",
-    "description": "Aquí tienes algunas de mis habilidades y estadísticas en GitHub. Puedes ver más detalles sobre mis proyectos y contribuciones en mi perfil de GitHub.",
+    "subtitle": "Stack Técnico",
+    "description": "Las tecnologías con las que trabajo día a día y mis estadísticas de contribución en GitHub.",
     "techStack": "Stack de Tecnologías"
   },
   "about": {
     "title": "Sobre mí",
+    "subtitle": "Conóceme",
+    "description": "Un poco sobre quién soy, mi enfoque profesional y lo que me apasiona del desarrollo de software.",
     "paragraph1": "Soy Licenciado en Informática con formación integral en el desarrollo de soluciones tecnológicas y un fuerte enfoque en el desarrollo web moderno. Trabajo con tecnologías del ecosistema JavaScript como React, Angular, Vue y Node.js, creando aplicaciones eficientes, escalables y centradas en el usuario.",
     "paragraph2": "He desarrollado proyectos que abarcan desde el diseño de interfaces dinámicas hasta la implementación de lógica de negocio en frontend y backend, incluyendo integraciones como envío seguro de correos, validación avanzada de formularios y manejo confiable de datos. Mi experiencia incluye el trabajo con bases de datos no relacionales (MongoDB) y relacionales (MySQL, Oracle, SQL Server), así como el uso de Git y GitHub para una gestión colaborativa del código.",
     "paragraph3": "Además, cuento con conocimientos en diseño UX/UI utilizando Figma, lo que me permite unir la parte técnica con una experiencia visual intuitiva y atractiva. Me defino como un profesional proactivo, responsable y en permanente actualización, con el objetivo de aportar soluciones innovadoras y de calidad en cada proyecto que desarrollo."
@@ -92,7 +98,14 @@
         "title": "Analista Programador Tron",
         "company": "Mapfre BHD",
         "highlights": [
-          
+          {
+            "text": "Desarrollo y optimización de consultas SQL en Oracle para procesos empresariales.",
+            "highlighted": true
+          },
+          {
+            "text": "Análisis funcional y resolución de incidencias en aplicaciones internas.",
+            "highlighted": false
+          }
         ],
         "technologies": ["Oracle SQL", "PL/SQL"]
       },

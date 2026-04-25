@@ -33,16 +33,13 @@ const techStack = [
 
 <SectionComponent id="skills">
   <DivSection>
-    <TitleHeader titleH2={t.skills.title} icon="🛠️" i18nKey="skills.title" />
+    <TitleHeader titleH2={t.skills.title} subtitle={t.skills.subtitle} description={t.skills.description} i18nKey="skills.title" />
     <article class="w-full">
       <aside>
-        <GithubStats client:visible  currentLocale={currentLocale}/>
-        <p class="text-gray-600 dark:text-gray-400 mt-4" data-i18n="skills.description">
-          {t.skills.description}
-        </p>
+        <GithubStats client:visible currentLocale={currentLocale}/>
       </aside>
       <aside class="mt-4">
-        <h3 class="font-bold text-3xl md:text-4xl" data-i18n="skills.techStack">{t.skills.techStack}</h3>
+        <h3 class="skills-stack-title font-bold text-3xl md:text-4xl" data-i18n="skills.techStack">{t.skills.techStack}</h3>
         <TechSkill techStack={techStack} />
       </aside>
     </article>

@@ -68,6 +68,7 @@ const navItems = [
                         aria-label={link.label}
                         href={link.url}
                         data-nav-item={link.label}
+                        {...(link.label === 'home' ? { 'data-astro-reload': true } : {})}
                     >
                         {link.title}
                     </a>
@@ -86,6 +87,7 @@ const navItems = [
                         aria-label={link.label}
                         href={link.url}
                         data-nav-item={link.label}
+                        {...(link.label === 'home' ? { 'data-astro-reload': true } : {})}
                     >
                         {link.title}
                     </a>

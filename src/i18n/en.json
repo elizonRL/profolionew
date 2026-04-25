@@ -17,6 +17,8 @@
   },
   "projects": {
     "title": "Projects",
+    "subtitle": "My Work",
+    "description": "A selection of projects that reflect my experience in web development, from modern interfaces to mobile applications.",
     "viewProject": "Preview",
     "viewCode": "Code",
     "englishBlog": {
@@ -30,7 +32,8 @@
   },
   "study": {
     "title": "My Studies",
-    "description": "Here are my studies and academic background:",
+    "subtitle": "Academic Background",
+    "description": "My educational journey and specialized courses that have shaped my technical and professional knowledge.",
     "degree": {
       "title": "Bachelor's Degree in Computer Science",
       "institution": "Autonomous University of Santo Domingo",
@@ -66,11 +69,14 @@
   },
   "skills": {
     "title": "Skills & Github Stats",
-    "description": "Here are some of my skills and GitHub statistics. You can see more details about my projects and contributions on my GitHub profile.",
+    "subtitle": "Tech Stack",
+    "description": "The technologies I work with on a daily basis and my GitHub contribution statistics.",
     "techStack": "Technology Stack"
   },
   "about": {
     "title": "About me",
+    "subtitle": "Get to Know Me",
+    "description": "A bit about who I am, my professional approach, and what drives my passion for software development.",
     "paragraph1": "I am a Computer Science graduate with comprehensive training in the development of technological solutions and a strong focus on modern web development. I work with JavaScript ecosystem technologies such as React, Angular, Vue and Node.js, creating efficient, scalable and user-centered applications.",
     "paragraph2": "I have developed projects ranging from designing dynamic interfaces to implementing business logic in frontend and backend, including integrations such as secure email sending, advanced form validation and reliable data handling. My experience includes working with non-relational databases (MongoDB) and relational databases (MySQL, Oracle, SQL Server), as well as using Git and GitHub for collaborative code management.",
     "paragraph3": "Additionally, I have knowledge in UX/UI design using Figma, which allows me to unite the technical part with an intuitive and attractive visual experience. I define myself as a proactive, responsible professional in permanent updating, with the objective of providing innovative and quality solutions in each project I develop."
@@ -92,7 +98,14 @@
         "title": "Tron Programmer Analyst",
         "company": "Mapfre BHD",
         "highlights": [
-          
+          {
+            "text": "Development and optimization of SQL queries in Oracle for business processes.",
+            "highlighted": true
+          },
+          {
+            "text": "Functional analysis and resolution of incidents in internal applications.",
+            "highlighted": false
+          }
         ],
         "technologies": ["Oracle SQL", "PL/SQL"]
       },

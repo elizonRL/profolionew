@@ -25,7 +25,8 @@ const { id } = Astro.props;
   <DivSection>
     <TitleHeader
       titleH2={t.projects.title}
-      icon='💻'
+      subtitle={t.projects.subtitle}
+      description={t.projects.description}
       i18nKey='projects.title'
     />
 
@@ -36,8 +37,8 @@ const { id } = Astro.props;
           const description = currentLocale === 'es' ? project.descrition_es : project.descrition_en;
           
           return (
-          <article class='fadeUp flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0'>
-            <div class='w-full md:w-1/2  '>
+          <article class='project-card flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0'>
+            <div class='project-img w-full md:w-1/2'>
               <div class='relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50'>
                 <img
                   alt={title}
@@ -49,7 +50,7 @@ const { id } = Astro.props;
               </div>
             </div>
 
-            <div class='w-full md:w-1/2 md:max-w-lg '>
+            <div class='project-info w-full md:w-1/2 md:max-w-lg'>
               <h3
                 class='text-2xl font-bold text-gray-800 dark:text-gray-100'
                 data-project-title
