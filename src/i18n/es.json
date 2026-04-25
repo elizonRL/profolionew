@@ -81,5 +81,53 @@
     "email": "Correo electrónico",
     "phone": "Teléfono",
     "location": "Ubicación"
+  },
+  "experience": {
+    "title": "Experiencia Laboral",
+    "subtitle": "Trayectoria Profesional",
+    "description": "Una línea de tiempo de mi crecimiento profesional, liderazgo técnico y contribuciones al campo de la ingeniería de software.",
+    "jobs": [
+      {
+        "period": "2026 - Actualidad",
+        "title": "Analista Programador Tron",
+        "company": "Mapfre BHD",
+        "highlights": [
+          
+        ],
+        "technologies": ["Oracle SQL", "PL/SQL"]
+      },
+      {
+        "period": "2018 - 2020",
+        "title": "Frontend Engineer",
+        "company": "Creative Digital Solutions",
+        "highlights": [
+          {
+            "text": "Desarrollé una biblioteca de componentes UI usando React y Tailwind CSS usada por 5 equipos de productos internos.",
+            "highlighted": true
+          },
+          {
+            "text": "Optimicé los core web vitals, resultando en un incremento del 25% en las tasas de conversión móvil.",
+            "highlighted": false
+          }
+        ],
+        "technologies": ["TypeScript", "Go", "PostgreSQL"]
+      },
+      {
+        "period": "2016 - 2018",
+        "title": "Junior Web Developer",
+        "company": "StartUp Launchpad",
+        "highlights": [
+          {
+            "text": "Colaboré en el desarrollo del MVP para una aplicación fintech usando Python y Vue.js.",
+            "highlighted": true
+          },
+          {
+            "text": "Automaticé flujos de pruebas reduciendo el tiempo de QA manual en 60 horas al mes.",
+            "highlighted": false
+          }
+        ],
+        "technologies": ["Vue.js", "Sass", "Firebase"]
+      }
+    ]
   }
 }

@@ -81,5 +81,53 @@
     "email": "Email",
     "phone": "Phone",
     "location": "Location"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "subtitle": "Professional Journey",
+    "description": "A timeline of my professional growth, technical leadership, and contributions to the software engineering landscape.",
+    "jobs": [
+      {
+        "period": "2026 - Present",
+        "title": "Tron Programmer Analyst",
+        "company": "Mapfre BHD",
+        "highlights": [
+          
+        ],
+        "technologies": ["Oracle SQL", "PL/SQL"]
+      },
+      {
+        "period": "2018 - 2020",
+        "title": "Frontend Engineer",
+        "company": "Creative Digital Solutions",
+        "highlights": [
+          {
+            "text": "Developed a proprietary UI library using React and Tailwind CSS used by 5 internal product teams.",
+            "highlighted": true
+          },
+          {
+            "text": "Optimized core web vitals, resulting in a 25% increase in mobile conversion rates.",
+            "highlighted": false
+          }
+        ],
+        "technologies": ["TypeScript", "Go", "PostgreSQL"]
+      },
+      {
+        "period": "2016 - 2018",
+        "title": "Junior Web Developer",
+        "company": "StartUp Launchpad",
+        "highlights": [
+          {
+            "text": "Collaborated on the MVP development for a fintech application using Python and Vue.js.",
+            "highlighted": true
+          },
+          {
+            "text": "Automated testing workflows reducing manual QA time by 60 hours per month.",
+            "highlighted": false
+          }
+        ],
+        "technologies": ["Vue.js", "Sass", "Firebase"]
+      }
+    ]
   }
 }
