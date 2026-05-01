@@ -1,6 +1,5 @@
 ---
 /*Componetes utilizados*/
-
 import TitleHeader from '@/TitleHeader.astro';
 import SectionComponent from '@/SectionComponent.astro';
 import DivSection from '@/DivSection.astro';
@@ -12,9 +11,7 @@ import { PROJECTS } from '../Data/projects';
 const currentLocale = Astro.currentLocale || 'es';
 const t = getTranslations(currentLocale);
 const { id } = Astro.props;
-
 ---
-
 <SectionComponent id={id}>
   <DivSection>
     <TitleHeader
