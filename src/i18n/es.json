@@ -110,36 +110,40 @@
         "technologies": ["Oracle SQL", "PL/SQL"]
       },
       {
-        "period": "2018 - 2020",
-        "title": "Frontend Engineer",
-        "company": "Creative Digital Solutions",
+        "period": "2022 - 2026",
+        "title": "Ingeniero de Software",
+        "company": "Freelance",
         "highlights": [
           {
-            "text": "Desarrollé una biblioteca de componentes UI usando React y Tailwind CSS usada por 5 equipos de productos internos.",
+            "text": "Desarrollé una aplicación web full-stack usando React, Node.js y MongoDB.",
+            "highlighted": false
+          },
+          {
+            "text": "Implementé una función de envío de correos con validación avanzada, mejorando la seguridad y confiabilidad del sistema.",
             "highlighted": true
           },
           {
-            "text": "Optimicé los core web vitals, resultando en un incremento del 25% en las tasas de conversión móvil.",
+            "text": "Colaboré con diseñadores UX/UI para crear interfaces intuitivas y atractivas utilizando Figma.",
             "highlighted": false
           }
         ],
-        "technologies": ["TypeScript", "Go", "PostgreSQL"]
+        "technologies": ["TypeScript", "Node.js", "mongodb", "MySQL", "Figma"]
       },
       {
-        "period": "2016 - 2018",
-        "title": "Junior Web Developer",
-        "company": "StartUp Launchpad",
+        "period": "2014 - 2026",
+        "title": "Control Master",
+        "company": "Grupo de Medios Telemicro",
         "highlights": [
           {
-            "text": "Colaboré en el desarrollo del MVP para una aplicación fintech usando Python y Vue.js.",
+            "text": "Garanticé la continuidad de transmisiones críticas, resolviendo exitosamente más de 300 incidentes técnicos de alta prioridad sin interrupciones, actuando como líder técnico en la gestión de emergencias y soporte de sistemas.",
             "highlighted": true
           },
           {
-            "text": "Automaticé flujos de pruebas reduciendo el tiempo de QA manual en 60 horas al mes.",
+            "text": "Optimicé la gestión de datos operativos, reduciendo los tiempos de respuesta ante fallos de hardware en un 25%, mediante la creación de scripts de automatización en Python para el monitoreo de señales y estados del sistema.",
             "highlighted": false
           }
         ],
-        "technologies": ["Vue.js", "Sass", "Firebase"]
+        "technologies": ["Python"]
       }
     ]
   }

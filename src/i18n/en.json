@@ -110,36 +110,40 @@
         "technologies": ["Oracle SQL", "PL/SQL"]
       },
       {
-        "period": "2018 - 2020",
-        "title": "Frontend Engineer",
-        "company": "Creative Digital Solutions",
+        "period": "2022 - 2026",
+        "title": "Software Engineer",
+        "company": "freelance",
         "highlights": [
           {
-            "text": "Developed a proprietary UI library using React and Tailwind CSS used by 5 internal product teams.",
+            "text": "Developed a full-stack web application using React, Node.js and MongoDB.",
             "highlighted": true
           },
           {
-            "text": "Optimized core web vitals, resulting in a 25% increase in mobile conversion rates.",
+            "text": "Implemented an email sending function with advanced validation, improving the security and reliability of the system.",
+            "highlighted": false
+          },
+          {
+            "text": "Collaborated with UX/UI designers to create intuitive and attractive interfaces using Figma.",
             "highlighted": false
           }
         ],
-        "technologies": ["TypeScript", "Go", "PostgreSQL"]
+        "technologies": ["TypeScript", "Node.js", "mongodb", "MySQL", "Figma"]
       },
       {
-        "period": "2016 - 2018",
-        "title": "Junior Web Developer",
-        "company": "StartUp Launchpad",
+        "period": "2014 - 2026",
+        "title": "Control Master",
+        "company": "Grupo de Medios Telemicro",
         "highlights": [
           {
-            "text": "Collaborated on the MVP development for a fintech application using Python and Vue.js.",
+            "text": "Ensured the continuity of critical transmissions, successfully resolving over 300 high-priority technical incidents without disruptions, acting as a technical leader in emergency management and system support.",
             "highlighted": true
           },
           {
-            "text": "Automated testing workflows reducing manual QA time by 60 hours per month.",
+            "text": "Optimized operational data management, reducing response times to hardware failures by 25%, through the creation of automation scripts in Python for signal monitoring and system status tracking.",
             "highlighted": false
           }
         ],
-        "technologies": ["Vue.js", "Sass", "Firebase"]
+        "technologies": ["Python"]
       }
     ]
   }
