@@ -16,30 +16,22 @@ const studyData = [
   <DivSection>
     <TitleHeader
       titleH2={t.study.title}
-      icon='📚'
+      subtitle={t.study.subtitle}
+      description={t.study.description}
       i18nKey="study.title"
     />
-    <p class='text-lg mb-6' data-i18n="study.description">{t.study.description}</p>
     {
-      studyData.map((study) => (
-        <div class="group relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4] ">
-          <div class='relative pb-12 md:col-span-2'>
+      studyData.map((study, i) => (
+        <div class="study-item group relative mx-4 md:mx-12 pb-12 grid before:absolute before:left-[-20px] md:before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4">
+          <div class='study-left relative pb-12 md:col-span-2'>
             <div class='sticky top-0'>
-              <span class='text-accent -left-[43px] absolute rounded-full text-5xl'>
-                •
-              </span>
-              <h3 class='text-xl font-bold text-accent transition duration-305 linear group-hover:scale-105 group-hover:-translate-y-1 ' data-study-title>
-                {study.title}
-              </h3>
-              <h4 class='font-light  text-lg text-gray-600 dark:text-white' data-study-institution>
-                {study.institution}
-              </h4>
-              <time class='p-0 m-0 text-sm text-gray-600/80 dark:text-white/80'>
-                {study.duration}
-              </time>
+              <span class='study-dot text-accent -left-[43px] absolute rounded-full text-5xl'>•</span>
+              <h3 class='text-xl font-bold text-accent transition duration-305 linear group-hover:scale-105 group-hover:-translate-y-1' data-study-title>{study.title}</h3>
+              <h4 class='font-light text-lg text-gray-600 dark:text-white' data-study-institution>{study.institution}</h4>
+              <time class='p-0 m-0 text-sm text-gray-600/80 dark:text-white/80'>{study.duration}</time>
             </div>
           </div>
-          <div class='relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3'>
+          <div class='study-right relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3'>
             <p class='text-base' data-study-description>{study.description}</p>
           </div>
         </div>

@@ -30,7 +30,7 @@ const GithubStats = ({ currentLocale = 'es' }) => {
     if (username) {
       fetch(githubUrl)
         .then((response) => response.json())
-        .then((data) =>
+        .then((data) => {
           setRepos(
             data.map((repo) => ({
               id: repo.id,
@@ -40,9 +40,9 @@ const GithubStats = ({ currentLocale = 'es' }) => {
               stars: repo.stargazers_count,
               forks_count: repo.forks_count,
             }))
-          )
-        );
-      setLoading(false);
+          );
+          setLoading(false);
+        });
     } else {
       console.error("GitHub username is not defined.");
     }
@@ -50,8 +50,8 @@ const GithubStats = ({ currentLocale = 'es' }) => {
 
   return (
     <>
-      <div className="grid md:grid-cols-1 md:grid-rows-3 gap-8 p-4 justify-center items-start">
-        <div className="h-full md:col-span-2 md:row-span-5 bg-slate-800  border-gray-300 pr-4 rounded-xl shadow-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 items-start">
+        <div className="bg-slate-800 border-gray-300 pr-4 rounded-xl shadow-lg">
           <h3 className="text-xl font-semibold mb-4 pb-0 pt-2 text-center text-white">
             <svg width={26} height={26} className="inline mr-2">
               <use href="/assets/sprite.svg#github" />
@@ -86,20 +86,18 @@ const GithubStats = ({ currentLocale = 'es' }) => {
             </ul>
           )}
         </div>
-        <div className="md:col-span-2 md:row-span-2 md:col-start-3">
+        <div className="flex flex-col gap-4">
           <img
             src={`https://github-readme-stats-fast.vercel.app/api?username=${username}&show_icons=true&theme=radical`}
             alt={t.githubStats}
             loading="lazy"
-            className="w-full h-full object-contain shadow-lg rounded-xl"
+            className="w-full object-contain shadow-lg rounded-xl"
           />
-        </div>
-        <div className="md:col-span-2 md:row-span-2 md:col-start-3 md:row-start-4">
           <img
             src={`https://github-readme-stats-fast.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=radical`}
             alt={t.topLanguages}
             loading="lazy"
-            className="w-full h-full object-contain shadow-lg rounded-xl"
+            className="w-full object-contain shadow-lg rounded-xl"
           />
         </div>
       </div>

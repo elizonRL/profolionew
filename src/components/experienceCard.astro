@@ -1,0 +1,27 @@
+---
+
+---
+
+<div class="ml-10 md:ml-0">
+  <article class="w-full rounded-lg bg-[#242933] p-6 shadow-xl md:max-w-md">
+    <span class="text-xs font-bold text-blue-400"><slot name="period" /></span>
+
+    <h3 class="mt-2 text-xl font-bold text-blue-300">
+      <slot name="title" />
+    </h3>
+
+    <p class="mt-1 text-sm font-semibold text-white">
+      <slot name="company" />
+    </p>
+
+    <ul class="mt-5 space-y-4 text-sm text-slate-200">
+      <slot name="highlights" />
+    </ul>
+
+    <div class="mt-5 flex flex-wrap gap-2">
+      <slot name="technologies" />
+    </div>
+  </article>
+</div>
+
+<div class="hidden md:block"></div>

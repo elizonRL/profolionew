@@ -32,6 +32,42 @@ const currentLocale = Astro.currentLocale || 'es';
 		<title>{title}</title>
 		<ClientRouter />
 		<script src="/src/scripts/i18n-init.ts"></script>
+		<script>
+			import { gsap } from 'gsap';
+			import { ScrollTrigger } from 'gsap/ScrollTrigger';
+			import { initAnimations } from '../scripts/animations';
+			gsap.registerPlugin(ScrollTrigger);
+
+			document.addEventListener('astro:before-swap', () => {
+				ScrollTrigger.getAll().forEach(t => t.kill());
+				gsap.killTweensOf('*');
+			});
+
+			document.addEventListener('astro:page-load', () => {
+				const fromOtherPage = !window.location.hash;
+				if (fromOtherPage) window.scrollTo(0, 0);
+
+				initAnimations();
+
+				setTimeout(() => ScrollTrigger.refresh(), 200);
+			});
+
+			document.addEventListener('click', (e) => {
+				const link = (e.target as HTMLElement).closest('a[href^="#"]');
+				if (!link) return;
+				setTimeout(() => {
+					ScrollTrigger.refresh();
+					ScrollTrigger.getAll().forEach(trigger => {
+						const el = trigger.trigger;
+						if (!el) return;
+						const rect = el.getBoundingClientRect();
+						if (rect.top < window.innerHeight && rect.bottom > 0) {
+							trigger.animation?.progress(1).pause();
+						}
+					});
+				}, 600);
+			});
+		</script>
 	</head>
 	<body >
 		<Header/>
@@ -43,10 +79,11 @@ const currentLocale = Astro.currentLocale || 'es';
 	@reference "../styles/global.css";
 	html,
 	body {
-		color: white
+		color: white;
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		overflow-x: hidden;
 		@apply m-auto bg-[#0d1117];
 		scroll-behavior: smooth;
 	}

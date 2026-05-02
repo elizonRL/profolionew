@@ -12,6 +12,12 @@ const navItems = [
         url: currentLocale === 'es' ? '/' : '/en',
     },
     {
+        title: t.nav.experience,
+        label: 'experience',
+        url: '#experience'
+
+    },
+    {
         title: t.nav.projects,
         label: 'projects',
         url: '#projects',
@@ -34,7 +40,7 @@ const navItems = [
 ];
 ---
 
-<header class='fixed top-0 z-[100] w-full'>
+<header class='fixed top-0 z-100 w-full'>
     <!-- Mobile Header -->
     <div class='md:hidden flex justify-between items-center px-4 py-2 bg-gray-900/20 backdrop-blur-sm'>
         <button id='hamburger-btn' class='p-1.5 rounded-lg bg-gray-800/50 hover:bg-gray-700/70 transition-all'>
@@ -62,6 +68,7 @@ const navItems = [
                         aria-label={link.label}
                         href={link.url}
                         data-nav-item={link.label}
+                        {...(link.label === 'home' ? { 'data-astro-reload': true } : {})}
                     >
                         {link.title}
                     </a>
@@ -80,6 +87,7 @@ const navItems = [
                         aria-label={link.label}
                         href={link.url}
                         data-nav-item={link.label}
+                        {...(link.label === 'home' ? { 'data-astro-reload': true } : {})}
                     >
                         {link.title}
                     </a>
